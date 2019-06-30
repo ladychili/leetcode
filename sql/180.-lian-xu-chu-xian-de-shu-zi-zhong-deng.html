@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SQL · My Leetcode Log</title>
+        <title>180. 连续出现的数字（中等） · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="175.-zu-he-liang-ge-biao-jian-dan.html" />
+    <link rel="next" href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="178.-fen-shu-pai-ming.html" />
     
 
     </head>
@@ -115,7 +115,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="./">
             
                 <a href="./">
             
@@ -181,7 +181,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
+        <li class="chapter active" data-level="1.2.5" data-path="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
             
                 <a href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
             
@@ -242,7 +242,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SQL</a>
+        <a href=".." >180. 连续出现的数字（中等）</a>
     </h1>
 </div>
 
@@ -257,8 +257,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sql">SQL</h1>
-<p>SQL &#x6BCF;&#x65E5;5&#x9898;&#x3002;</p>
+                                <h1 id="180-&#x8FDE;&#x7EED;&#x51FA;&#x73B0;&#x7684;&#x6570;&#x5B57;&#xFF08;&#x4E2D;&#x7B49;&#xFF09;">180. &#x8FDE;&#x7EED;&#x51FA;&#x73B0;&#x7684;&#x6570;&#x5B57;&#xFF08;&#x4E2D;&#x7B49;&#xFF09;</h1>
+<p><strong>&#x8FDE;&#x7EED;</strong>&#x51FA;&#x73B0;3&#x6B21;&#x7684;&#x6570;&#x5B57;&#x3002;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
+    <span class="hljs-keyword">DISTINCT</span> a.<span class="hljs-keyword">Num</span> <span class="hljs-keyword">AS</span> ConsecutiveNums
+<span class="hljs-keyword">FROM</span> 
+    <span class="hljs-keyword">Logs</span> a, <span class="hljs-keyword">Logs</span> b, <span class="hljs-keyword">Logs</span> c
+<span class="hljs-keyword">WHERE</span>
+    a.<span class="hljs-keyword">Id</span> = b.<span class="hljs-keyword">Id</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">AND</span>
+    a.<span class="hljs-keyword">Id</span> = c.<span class="hljs-keyword">Id</span> + <span class="hljs-number">2</span> <span class="hljs-keyword">AND</span>
+    a.<span class="hljs-keyword">Num</span> = b.<span class="hljs-keyword">Num</span> <span class="hljs-keyword">AND</span>
+    a.<span class="hljs-keyword">Num</span> = c.<span class="hljs-keyword">Num</span>
+</code></pre>
 
                                 
                                 </section>
@@ -286,12 +296,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Preface">
+                <a href="178.-fen-shu-pai-ming.html" class="navigation navigation-prev " aria-label="Previous page: 178. 分数排名（中等）">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="175.-zu-he-liang-ge-biao-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 175. 组合两个表（简单）">
+                <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 181. 超过经理收入的员工（简单）">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -302,7 +312,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SQL","level":"1.2","depth":1,"next":{"title":"175. 组合两个表（简单）","level":"1.2.1","depth":2,"path":"sql/175.-zu-he-liang-ge-biao-jian-dan.md","ref":"sql/175.-zu-he-liang-ge-biao-jian-dan.md","articles":[]},"previous":{"title":"Preface","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/README.md","mtime":"2019-06-30T01:01:14.274Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-30T19:47:45.002Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"180. 连续出现的数字（中等）","level":"1.2.5","depth":2,"next":{"title":"181. 超过经理收入的员工（简单）","level":"1.2.6","depth":2,"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","ref":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","articles":[]},"previous":{"title":"178. 分数排名（中等）","level":"1.2.4","depth":2,"path":"sql/178.-fen-shu-pai-ming.md","ref":"sql/178.-fen-shu-pai-ming.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","mtime":"2019-06-30T19:39:11.899Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-30T19:47:45.002Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
