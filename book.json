@@ -1,0 +1,40 @@
+{
+    "author": "Lady Chili <czqt0@outlook.com>",
+    "description": "This is a sample book created by gitbook",
+    "extension": null,
+    "generator": "site",
+    "links": {
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        },
+        "sidebar": {
+            "LadyChili's Place": "https://ladychili.top"
+        }
+    },
+    "output": null,
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": ["disqus"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "ladychili"
+        }
+    },
+    "title": "My Leetcode Log",
+    "variables": {}
+}
