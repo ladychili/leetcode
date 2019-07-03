@@ -8,4 +8,8 @@
   * [178. 分数排名（中等）](sql/178.-fen-shu-pai-ming.md)
   * [180. 连续出现的数字（中等）](sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md)
   * [181. 超过经理收入的员工（简单）](sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md)
+  * [182. 查找重复的电子邮箱（简单）](sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md)
+  * [183. 从不订购的客户（简单）](sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md)
+* [Untitled](untitled-1.md)
+* [Untitled](untitled.md)
 
