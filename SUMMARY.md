@@ -10,6 +10,7 @@
   * [181. 超过经理收入的员工（简单）](sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md)
   * [182. 查找重复的电子邮箱（简单）](sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md)
   * [183. 从不订购的客户（简单）](sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md)
-* [Untitled](untitled-1.md)
+  * [184. 部门工资最高的员工（中等）](sql/184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.md)
+  * [185. 部门工资前三高的员工（困难）](sql/untitled-1.md)
 * [Untitled](untitled.md)
 
