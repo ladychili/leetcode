@@ -12,5 +12,7 @@
   * [183. 从不订购的客户（简单）](sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md)
   * [184. 部门工资最高的员工（中等）](sql/184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.md)
   * [185. 部门工资前三高的员工（困难）](sql/untitled-1.md)
+  * [197. 上升的温度（简单）](sql/197.-shang-sheng-de-wen-du-jian-dan.md)
+  * [262. 行程和用户（困难）](sql/262.-hang-cheng-he-yong-hu-kun-nan.md)
 * [Untitled](untitled.md)
 
