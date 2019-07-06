@@ -14,5 +14,7 @@
   * [185. 部门工资前三高的员工（困难）](sql/untitled-1.md)
   * [197. 上升的温度（简单）](sql/197.-shang-sheng-de-wen-du-jian-dan.md)
   * [262. 行程和用户（困难）](sql/262.-hang-cheng-he-yong-hu-kun-nan.md)
-* [Untitled](untitled.md)
+  * [595. 大的国家（简单）](sql/595.-da-de-guo-jia-jian-dan.md)
+  * [596. 超过5名学生的课（简单）](sql/596.-chao-guo-5-ming-xue-sheng-de-ke.md)
+  * [601. 体育馆的人流量（困难）](sql/601.-ti-yu-guan-de-ren-liu-liang-kun-nan.md)
 
