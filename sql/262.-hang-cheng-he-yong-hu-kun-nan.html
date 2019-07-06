@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>182. 查找重复的电子邮箱（简单） · My Leetcode Log</title>
+        <title>262. 行程和用户（困难） · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="183.-cong-bu-ding-gou-de-ke-hu-jian-dan.html" />
+    <link rel="next" href="595.-da-de-guo-jia-jian-dan.html" />
     
     
-    <link rel="prev" href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" />
+    <link rel="prev" href="197.-shang-sheng-de-wen-du-jian-dan.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.7" data-path="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html">
+        <li class="chapter " data-level="1.2.7" data-path="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html">
             
                 <a href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html">
             
@@ -272,7 +272,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.12" data-path="262.-hang-cheng-he-yong-hu-kun-nan.html">
+        <li class="chapter active" data-level="1.2.12" data-path="262.-hang-cheng-he-yong-hu-kun-nan.html">
             
                 <a href="262.-hang-cheng-he-yong-hu-kun-nan.html">
             
@@ -359,7 +359,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >182. 查找重复的电子邮箱（简单）</a>
+        <a href=".." >262. 行程和用户（困难）</a>
     </h1>
 </div>
 
@@ -374,14 +374,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="182-&#x67E5;&#x627E;&#x91CD;&#x590D;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x7BB1;&#xFF08;&#x7B80;&#x5355;&#xFF09;">182. &#x67E5;&#x627E;&#x91CD;&#x590D;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x7BB1;&#xFF08;&#x7B80;&#x5355;&#xFF09;</h1>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    Email
+                                <h1 id="262-&#x884C;&#x7A0B;&#x548C;&#x7528;&#x6237;&#xFF08;&#x56F0;&#x96BE;&#xFF09;">262. &#x884C;&#x7A0B;&#x548C;&#x7528;&#x6237;&#xFF08;&#x56F0;&#x96BE;&#xFF09;</h1>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    t.request_at <span class="hljs-keyword">AS</span> <span class="hljs-keyword">Day</span>,
+    <span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">SUM</span>(<span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> <span class="hljs-keyword">status</span> &lt;&gt; <span class="hljs-string">&apos;completed&apos;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-number">1</span> <span class="hljs-keyword">ELSE</span> <span class="hljs-number">0</span> <span class="hljs-keyword">END</span>)/<span class="hljs-keyword">COUNT</span>(t.<span class="hljs-keyword">id</span>),<span class="hljs-number">2</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">&apos;Cancellation Rate&apos;</span>
 <span class="hljs-keyword">FROM</span>
-    Person
-<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Email
-<span class="hljs-keyword">Having</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) &gt; <span class="hljs-number">1</span>
+    Trips t <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
+    <span class="hljs-keyword">Users</span> u1 <span class="hljs-keyword">ON</span> t.client_id = u1.users_id <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
+    <span class="hljs-keyword">Users</span> u2 <span class="hljs-keyword">ON</span> t.driver_id = u2.users_id
+<span class="hljs-keyword">WHERE</span> 
+    u2.banned = <span class="hljs-string">&apos;No&apos;</span> <span class="hljs-keyword">AND</span> u1.banned = <span class="hljs-string">&apos;No&apos;</span> <span class="hljs-keyword">AND</span>
+    t.request_at <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">&apos;2013-10-01&apos;</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">&apos;2013-10-03&apos;</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    t.request_at
 </code></pre>
+<p>&#x8FD9;&#x9898;&#x6709;&#x6BD2;&#x3002;&#x3002;&#x3002;</p>
+<p>&#x6309;&#x7406;&#x8BF4;<strong>&#x201C;&#x975E;&#x7981;&#x6B62;&#x7528;&#x6237;&#x7684;&#x53D6;&#x6D88;&#x7387;&#x201C;</strong>&#x5E94;&#x8BE5;&#x8981;&#x8003;&#x8651;cancelled by who&#x7684;&#xFF0C;&#x6BD5;&#x7ADF;driver&#x548C;client&#x90FD;&#x5728;Users&#x8868;&#x91CC;&#x3002;<br>&#x7136;&#x800C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x53EA;&#x662F;&#x53BB;&#x6389;&#x4E86;&#x6240;&#x6709;banned&#x7528;&#x6237;&#x7684;&#x8BA2;&#x5355;&#xFF0C;&#x7136;&#x540E;&#x53EA;&#x8981;&#x662F;&#x975E;completed&#x7684;&#x8BA2;&#x5355;&#x5168;&#x90FD;&#x7B97;&#x505A;&#x5206;&#x5B50;&#x7BA1;&#x4ED6;&#x8C01;cancel&#x7684;&#x3002;&#x8FD9;&#x4E48;&#x4E00;&#x641E;&#x8FD9;&#x9898;&#x5176;&#x5B9E;&#x7B97;&#x4E0D;&#x4E0A;<strong>&#x56F0;&#x96BE;</strong>&#x4E86;&#x3002;</p>
+<p>&#x573A;&#x666F;&#x633A;&#x4E0D;&#x9519;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x9898;&#x610F;&#x660E;&#x786E;&#x4E00;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x8BA1;&#x6210;&#x4E00;&#x9053;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x9898;&#x3002;</p>
 
                                 
                                 </section>
@@ -409,12 +418,12 @@
 
             
                 
-                <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" class="navigation navigation-prev " aria-label="Previous page: 181. 超过经理收入的员工（简单）">
+                <a href="197.-shang-sheng-de-wen-du-jian-dan.html" class="navigation navigation-prev " aria-label="Previous page: 197. 上升的温度（简单）">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="183.-cong-bu-ding-gou-de-ke-hu-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 183. 从不订购的客户（简单）">
+                <a href="595.-da-de-guo-jia-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 595. 大的国家（简单）">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -425,7 +434,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"182. 查找重复的电子邮箱（简单）","level":"1.2.7","depth":2,"next":{"title":"183. 从不订购的客户（简单）","level":"1.2.8","depth":2,"path":"sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md","ref":"sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md","articles":[]},"previous":{"title":"181. 超过经理收入的员工（简单）","level":"1.2.6","depth":2,"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","ref":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","mtime":"2019-07-04T21:12:26.384Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-06T01:04:17.193Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"262. 行程和用户（困难）","level":"1.2.12","depth":2,"next":{"title":"595. 大的国家（简单）","level":"1.2.13","depth":2,"path":"sql/595.-da-de-guo-jia-jian-dan.md","ref":"sql/595.-da-de-guo-jia-jian-dan.md","articles":[]},"previous":{"title":"197. 上升的温度（简单）","level":"1.2.11","depth":2,"path":"sql/197.-shang-sheng-de-wen-du-jian-dan.md","ref":"sql/197.-shang-sheng-de-wen-du-jian-dan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/262.-hang-cheng-he-yong-hu-kun-nan.md","mtime":"2019-07-05T13:22:05.733Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-06T01:04:17.193Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
