@@ -17,4 +17,8 @@
   * [595. 大的国家（简单）](sql/595.-da-de-guo-jia-jian-dan.md)
   * [596. 超过5名学生的课（简单）](sql/596.-chao-guo-5-ming-xue-sheng-de-ke.md)
   * [601. 体育馆的人流量（困难）](sql/601.-ti-yu-guan-de-ren-liu-liang-kun-nan.md)
+  * [620. 有趣的电影（简单）](sql/620.-you-qu-de-dian-ying-jian-dan.md)
+  * [626. 换座位（中等）](sql/626.-huan-zuo-wei-zhong-deng.md)
+  * [627. 交换工资（简单）](sql/627.-jiao-huan-gong-zi-jian-dan.md)
+* [Untitled](untitled.md)
 
