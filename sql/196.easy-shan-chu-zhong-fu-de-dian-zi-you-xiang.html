@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>184.(Medium) 部门工资最高的员工 · My Leetcode Log</title>
+        <title>196.(Easy) 删除重复的电子邮箱 · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="untitled-1.html" />
+    <link rel="next" href="197.-shang-sheng-de-wen-du-jian-dan.html" />
     
     
-    <link rel="prev" href="183.-cong-bu-ding-gou-de-ke-hu-jian-dan.html" />
+    <link rel="prev" href="untitled-1.html" />
     
 
     </head>
@@ -233,7 +233,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.9" data-path="184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.html">
+        <li class="chapter " data-level="1.2.9" data-path="184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.html">
             
                 <a href="184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.html">
             
@@ -259,7 +259,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.11" data-path="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html">
+        <li class="chapter active" data-level="1.2.11" data-path="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html">
             
                 <a href="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html">
             
@@ -502,7 +502,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >184.(Medium) 部门工资最高的员工</a>
+        <a href=".." >196.(Easy) 删除重复的电子邮箱</a>
     </h1>
 </div>
 
@@ -517,47 +517,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="184medium-&#x90E8;&#x95E8;&#x5DE5;&#x8D44;&#x6700;&#x9AD8;&#x7684;&#x5458;&#x5DE5;">184.(Medium) &#x90E8;&#x95E8;&#x5DE5;&#x8D44;&#x6700;&#x9AD8;&#x7684;&#x5458;&#x5DE5;</h1>
-<pre><code class="lang-text">Employee 
-+----+-------+--------+--------------+
-| Id | Name  | Salary | DepartmentId |
-+----+-------+--------+--------------+
-| 1  | Joe   | 70000  | 1            |
-| 2  | Jim   | 90000  | 1            |
-| 3  | Henry | 80000  | 2            |
-| 4  | Sam   | 60000  | 2            |
-| 5  | Max   | 90000  | 1            |
-+----+-------+--------+--------------+
-Department
-+----+----------+
-| Id | Name     |
-+----+----------+
-| 1  | IT       |
-| 2  | Sales    |
-+----+----------+
-
-Output
-+------------+----------+--------+
-| Department | Employee | Salary |
-+------------+----------+--------+
-| IT         | Max      | 90000  |
-| IT         | Jim      | 90000  |
-| Sales      | Henry    | 80000  |
-+------------+----------+--------+
+                                <h1 id="196easy-&#x5220;&#x9664;&#x91CD;&#x590D;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x7BB1;">196.(Easy) &#x5220;&#x9664;&#x91CD;&#x590D;&#x7684;&#x7535;&#x5B50;&#x90AE;&#x7BB1;</h1>
+<pre><code class="lang-text">+----+------------------+
+| Id | Email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
+| 3  | john@example.com |
++----+------------------+
 </code></pre>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    d.<span class="hljs-keyword">Name</span> <span class="hljs-keyword">AS</span> Department,
-    e.<span class="hljs-keyword">Name</span> <span class="hljs-keyword">AS</span> Employee,
-    e.Salary <span class="hljs-keyword">AS</span> Salary
-<span class="hljs-keyword">FROM</span>
-    Employee e,
-    Department d
-<span class="hljs-keyword">WHERE</span> e.DepartmentId = d.<span class="hljs-keyword">Id</span> <span class="hljs-keyword">AND</span>
-      (d.<span class="hljs-keyword">Id</span>,e.Salary) <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> DepartmentId, <span class="hljs-keyword">MAX</span>(Salary) 
-                            <span class="hljs-keyword">FROM</span> Employee
-                            <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> DepartmentId)
+<pre><code class="lang-sql"><span class="hljs-keyword">DELETE</span> p1 <span class="hljs-keyword">FROM</span> Person p1,
+    Person p2
+<span class="hljs-keyword">WHERE</span>
+    p1.Email = p2.Email <span class="hljs-keyword">AND</span> p1.<span class="hljs-keyword">Id</span> &gt; p2.<span class="hljs-keyword">Id</span>
 </code></pre>
-<p>&#x7528;&#x4E86;subquery&#x9009;&#x53D6;&#x5404;&#x4E2A;&#x90E8;&#x95E8;&#x7684;&#x6700;&#x5927;&#x85AA;&#x8D44;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x539F;query&#x91CC;&#x76F4;&#x63A5;&#x7528;<code>GROUP BY</code> + <code>MAX()</code>&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x540C;&#x90E8;&#x95E8;&#x7684;<strong>&#x6700;&#x5927;</strong>&#x85AA;&#x8D44;&#x53EF;&#x80FD;&#x6709;<strong>&#x591A;&#x4E2A;</strong>&#x4EBA;&#x3002;</p>
 
                                 
                                 </section>
@@ -585,12 +558,12 @@ Output
 
             
                 
-                <a href="183.-cong-bu-ding-gou-de-ke-hu-jian-dan.html" class="navigation navigation-prev " aria-label="Previous page: 183.(Easy) 从不订购的客户">
+                <a href="untitled-1.html" class="navigation navigation-prev " aria-label="Previous page: 185.(Hard) 部门工资前三高的员工">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="untitled-1.html" class="navigation navigation-next " aria-label="Next page: 185.(Hard) 部门工资前三高的员工">
+                <a href="197.-shang-sheng-de-wen-du-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 197.(Easy) 上升的温度">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -601,7 +574,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"184.(Medium) 部门工资最高的员工","level":"1.2.9","depth":2,"next":{"title":"185.(Hard) 部门工资前三高的员工","level":"1.2.10","depth":2,"path":"sql/untitled-1.md","ref":"sql/untitled-1.md","articles":[]},"previous":{"title":"183.(Easy) 从不订购的客户","level":"1.2.8","depth":2,"path":"sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md","ref":"sql/183.-cong-bu-ding-gou-de-ke-hu-jian-dan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.md","mtime":"2019-07-07T20:19:26.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-07T20:19:36.985Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"196.(Easy) 删除重复的电子邮箱","level":"1.2.11","depth":2,"next":{"title":"197.(Easy) 上升的温度","level":"1.2.12","depth":2,"path":"sql/197.-shang-sheng-de-wen-du-jian-dan.md","ref":"sql/197.-shang-sheng-de-wen-du-jian-dan.md","articles":[]},"previous":{"title":"185.(Hard) 部门工资前三高的员工","level":"1.2.10","depth":2,"path":"sql/untitled-1.md","ref":"sql/untitled-1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.md","mtime":"2019-07-07T20:19:26.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-07T20:19:36.985Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
