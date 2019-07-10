@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>185.(Hard) 部门工资前三高的员工 · My Leetcode Log</title>
+        <title>577.(Easy) Employee Bonus · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html" />
     
-    
-    <link rel="prev" href="184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.html" />
+    <link rel="prev" href="574.-medium-winning-candidate.html" />
     
 
     </head>
@@ -246,7 +244,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.10" data-path="untitled-1.html">
+        <li class="chapter " data-level="1.2.10" data-path="untitled-1.html">
             
                 <a href="untitled-1.html">
             
@@ -480,7 +478,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.28" data-path="untitled.html">
+        <li class="chapter active" data-level="1.2.28" data-path="untitled.html">
             
                 <a href="untitled.html">
             
@@ -528,7 +526,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >185.(Hard) 部门工资前三高的员工</a>
+        <a href=".." >577.(Easy) Employee Bonus</a>
     </h1>
 </div>
 
@@ -543,72 +541,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="185hard-&#x90E8;&#x95E8;&#x5DE5;&#x8D44;&#x524D;&#x4E09;&#x9AD8;&#x7684;&#x5458;&#x5DE5;">185.(Hard) &#x90E8;&#x95E8;&#x5DE5;&#x8D44;&#x524D;&#x4E09;&#x9AD8;&#x7684;&#x5458;&#x5DE5;</h1>
+                                <h1 id="577easy-employee-bonus">577.(Easy) Employee Bonus</h1>
 <pre><code class="lang-text">Employee
-+----+-------+--------+--------------+
-| Id | Name  | Salary | DepartmentId |
-+----+-------+--------+--------------+
-| 1  | Joe   | 85000  | 1            |
-| 2  | Henry | 80000  | 2            |
-| 3  | Sam   | 60000  | 2            |
-| 4  | Max   | 90000  | 1            |
-| 5  | Janet | 69000  | 1            |
-| 6  | Randy | 85000  | 1            |
-| 7  | Will  | 70000  | 1            |
-+----+-------+--------+--------------+
-Department
-+----+----------+
-| Id | Name     |
-+----+----------+
-| 1  | IT       |
-| 2  | Sales    |
-+----+----------+
 
-Output
-+------------+----------+--------+
-| Department | Employee | Salary |
-+------------+----------+--------+
-| IT         | Max      | 90000  |
-| IT         | Randy    | 85000  |
-| IT         | Joe      | 85000  |
-| IT         | Will     | 70000  |
-| Sales      | Henry    | 80000  |
-| Sales      | Sam      | 60000  |
-+------------+----------+--------+
++-------+--------+-----------+--------+
+| empId |  name  | supervisor| salary |
++-------+--------+-----------+--------+
+|   1   | John   |  3        | 1000   |
+|   2   | Dan    |  3        | 2000   |
+|   3   | Brad   |  null     | 4000   |
+|   4   | Thomas |  3        | 4000   |
++-------+--------+-----------+--------+
+
+Bonus
+
++-------+-------+
+| empId | bonus |
++-------+-------+
+| 2     | 500   |
+| 4     | 2000  |
++-------+-------+
+
+output
++-------+-------+
+| name  | bonus |
++-------+-------+
+| John  | null  |
+| Dan   | 500   |
+| Brad  | null  |
++-------+-------+
 </code></pre>
-<h4 id="step-1-&#x9009;&#x51FA;&#x6574;&#x4F53;&#x7684;top-3&#x85AA;&#x6C34;">Step 1 &#x9009;&#x51FA;&#x6574;&#x4F53;&#x7684;top 3&#x85AA;&#x6C34;</h4>
-<p>&#x610F;&#x5473;&#x7740;&#x5BF9;&#x4E8E;&#x9009;&#x51FA;&#x7684;salary&#xFF0C;&#x6BD4;&#x5B83;&#x5927;&#x7684;<strong>&#x4E0D;&#x8D85;&#x8FC7;3&#x4E2A;</strong></p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    e1.Salary
-<span class="hljs-keyword">FROM</span> 
-    Employee e1
-<span class="hljs-keyword">WHERE</span> <span class="hljs-number">3</span> &gt; (<span class="hljs-keyword">SELECT</span>
-                <span class="hljs-keyword">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> e2.Salary)
-           <span class="hljs-keyword">FROM</span> 
-                Employee e2
-           <span class="hljs-keyword">WHERE</span>
-                e2.Salary &gt; e1.Salary)
-</code></pre>
-<p>&#x8FD9;&#x91CC;&#x5982;&#x679C;&#x628A;line 5&#x7684; <code>3 &gt;</code> &#x6362;&#x6210;</p>
-<ul>
-<li>n &gt; , &#x76F8;&#x5F53;&#x4E8E; top n</li>
-<li>n = , &#x76F8;&#x5F53;&#x4E8E; &#x7B2C; n + 1</li>
-</ul>
-<h4 id="step-2-&#x7ED3;&#x5408;&#x90E8;&#x95E8;&#x4FE1;&#x606F;&#x7684;top-3">Step 2 &#x7ED3;&#x5408;&#x90E8;&#x95E8;&#x4FE1;&#x606F;&#x7684;top 3</h4>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    d.<span class="hljs-keyword">Name</span> Department,
-    e1.<span class="hljs-keyword">Name</span> Employee,
-    e1.Salary Salary
-<span class="hljs-keyword">FROM</span> 
-    Employee e1 <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> Department d
-    <span class="hljs-keyword">ON</span> e1.DepartmentId = d.<span class="hljs-keyword">Id</span>           
-<span class="hljs-keyword">WHERE</span> <span class="hljs-number">3</span> &gt; (<span class="hljs-keyword">SELECT</span>
-               <span class="hljs-keyword">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> e2.Salary)
-           <span class="hljs-keyword">FROM</span>
-               Employee e2
-           <span class="hljs-keyword">WHERE</span>
-               e1.Salary &lt; e2.Salary <span class="hljs-keyword">AND</span>
-               e1.DepartmentID = e2.DepartmentId) <span class="hljs-comment">-- &#x5BF9;&#x5E94;&#x4E0A;&#x90E8;&#x95E8;&#x4FE1;&#x606F;&#xFF08;&#x9009;&#x53D6;&#x90E8;&#x95E8;&#x5185;top 3&#xFF09;</span>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    e.<span class="hljs-keyword">name</span>,
+    b.bonus
+<span class="hljs-keyword">FROM</span>
+    Employee e <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Bonus b <span class="hljs-keyword">ON</span>
+    e.empid = b.empid
+<span class="hljs-keyword">WHERE</span>
+    b.bonus &lt; <span class="hljs-number">1000</span> <span class="hljs-keyword">OR</span> 
+    b.bonus <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>
 </code></pre>
 
                                 
@@ -637,14 +608,10 @@ Output
 
             
                 
-                <a href="184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.html" class="navigation navigation-prev " aria-label="Previous page: 184.(Medium) 部门工资最高的员工">
+                <a href="574.-medium-winning-candidate.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 574.(Medium) Winning Candidate">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html" class="navigation navigation-next " aria-label="Next page: 196.(Easy) 删除重复的电子邮箱">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -653,7 +620,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"185.(Hard) 部门工资前三高的员工","level":"1.2.10","depth":2,"next":{"title":"196.(Easy) 删除重复的电子邮箱","level":"1.2.11","depth":2,"path":"sql/196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.md","ref":"sql/196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.md","articles":[]},"previous":{"title":"184.(Medium) 部门工资最高的员工","level":"1.2.9","depth":2,"path":"sql/184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.md","ref":"sql/184.-bu-men-gong-zi-zui-gao-de-yuan-gong-zhong-deng.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/untitled-1.md","mtime":"2019-07-10T22:52:24.567Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T22:58:29.489Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"577.(Easy) Employee Bonus","level":"1.2.28","depth":2,"previous":{"title":"574.(Medium) Winning Candidate","level":"1.2.27","depth":2,"path":"sql/574.-medium-winning-candidate.md","ref":"sql/574.-medium-winning-candidate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/untitled.md","mtime":"2019-07-10T22:57:10.270Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T22:58:29.489Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
