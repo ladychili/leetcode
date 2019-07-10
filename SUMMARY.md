@@ -28,4 +28,6 @@
   * [620.\(Easy\) 有趣的电影](sql/620.-you-qu-de-dian-ying-jian-dan.md)
   * [626.\(Medium\) 换座位](sql/626.-huan-zuo-wei-zhong-deng.md)
   * [627.\(Easy\) 交换工资](sql/627.-jiao-huan-gong-zi-jian-dan.md)
+  * [574.\(Medium\) Winning Candidate](sql/574.-medium-winning-candidate.md)
+  * [Untitled](sql/untitled.md)
 
