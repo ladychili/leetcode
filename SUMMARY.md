@@ -30,4 +30,6 @@
   * [627.\(Easy\) 交换工资](sql/627.-jiao-huan-gong-zi-jian-dan.md)
   * [574.\(Medium\) Winning Candidate](sql/574.-medium-winning-candidate.md)
   * [577.\(Easy\) Employee Bonus](sql/untitled.md)
+  * [578.\(Medium\) Get Highest Answer Rate Question](sql/578.-medium-get-highest-answer-rate-question.md)
+  * [579.\(Hard\) Find Cumulative Salary of an Employee](sql/579.-find-cumulative-salary-of-an-employee.md)
 
