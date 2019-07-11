@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>181.(Easy) 超过经理收入的员工 · My Leetcode Log</title>
+        <title>578.(Medium) Get Highest Answer Rate Question · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html" />
+    <link rel="next" href="579.-find-cumulative-salary-of-an-employee.html" />
     
     
-    <link rel="prev" href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html" />
+    <link rel="prev" href="untitled.html" />
     
 
     </head>
@@ -194,7 +194,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.6" data-path="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
+        <li class="chapter " data-level="1.2.6" data-path="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
             
                 <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
             
@@ -493,7 +493,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.29" data-path="578.-medium-get-highest-answer-rate-question.html">
+        <li class="chapter active" data-level="1.2.29" data-path="578.-medium-get-highest-answer-rate-question.html">
             
                 <a href="578.-medium-get-highest-answer-rate-question.html">
             
@@ -554,7 +554,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >181.(Easy) 超过经理收入的员工</a>
+        <a href=".." >578.(Medium) Get Highest Answer Rate Question</a>
     </h1>
 </div>
 
@@ -569,15 +569,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="181easy-&#x8D85;&#x8FC7;&#x7ECF;&#x7406;&#x6536;&#x5165;&#x7684;&#x5458;&#x5DE5;">181.(Easy) &#x8D85;&#x8FC7;&#x7ECF;&#x7406;&#x6536;&#x5165;&#x7684;&#x5458;&#x5DE5;</h1>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    e1.<span class="hljs-keyword">Name</span> <span class="hljs-keyword">AS</span> Employee
-<span class="hljs-keyword">FROM</span> 
-    Employee e1 <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
-    Employee e2 <span class="hljs-keyword">ON</span>
-    e1.ManagerId = e2.<span class="hljs-keyword">Id</span>
-<span class="hljs-keyword">WHERE</span> 
-    e1.Salary &gt; e2.Salary
+                                <h1 id="578medium-get-highest-answer-rate-question">578.(Medium) Get Highest Answer Rate Question</h1>
+<p>Get the highest answer rate question from a table <code>survey_log</code> with these columns: <strong>uid</strong>, <strong>action</strong>, <strong>question_id</strong>, <strong>answer_id</strong>, <strong>q_num</strong>, <strong>timestamp</strong>.</p>
+<p>uid means user id; action has these kind of values: &quot;show&quot;, &quot;answer&quot;, &quot;skip&quot;; answer_id is not null when action column is &quot;answer&quot;, while is null for &quot;show&quot; and &quot;skip&quot;; q_num is the numeral order of the question in current session.</p>
+<p>Write a sql query to identify the question which has the highest answer rate.</p>
+<pre><code class="lang-text">Input:
++------+-----------+--------------+------------+-----------+------------+
+| uid  | action    | question_id  | answer_id  | q_num     | timestamp  |
++------+-----------+--------------+------------+-----------+------------+
+| 5    | show      | 285          | null       | 1         | 123        |
+| 5    | answer    | 285          | 124124     | 1         | 124        |
+| 5    | show      | 369          | null       | 2         | 125        |
+| 5    | skip      | 369          | null       | 2         | 126        |
++------+-----------+--------------+------------+-----------+------------+
+Output:
++-------------+
+| survey_log  |
++-------------+
+|    285      |
++-------------+
+Explanation:
+question 285 has answer rate 1/1, while question 369 has 0/1 answer rate, so output 285.
+</code></pre>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> question_id survey_log
+<span class="hljs-keyword">FROM</span> survey_log
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> question_id
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">COUNT</span>(answer_id) <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">1</span>
 </code></pre>
 
                                 
@@ -606,12 +624,12 @@
 
             
                 
-                <a href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html" class="navigation navigation-prev " aria-label="Previous page: 180.(Medium) 连续出现的数字">
+                <a href="untitled.html" class="navigation navigation-prev " aria-label="Previous page: 577.(Easy) Employee Bonus">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 182.(Easy) 查找重复的电子邮箱">
+                <a href="579.-find-cumulative-salary-of-an-employee.html" class="navigation navigation-next " aria-label="Next page: 579.(Hard) Find Cumulative Salary of an Employee">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -622,7 +640,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"181.(Easy) 超过经理收入的员工","level":"1.2.6","depth":2,"next":{"title":"182.(Easy) 查找重复的电子邮箱","level":"1.2.7","depth":2,"path":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","ref":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","articles":[]},"previous":{"title":"180.(Medium) 连续出现的数字","level":"1.2.5","depth":2,"path":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","ref":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","mtime":"2019-07-11T12:08:14.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-11T12:08:40.430Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"578.(Medium) Get Highest Answer Rate Question","level":"1.2.29","depth":2,"next":{"title":"579.(Hard) Find Cumulative Salary of an Employee","level":"1.2.30","depth":2,"path":"sql/579.-find-cumulative-salary-of-an-employee.md","ref":"sql/579.-find-cumulative-salary-of-an-employee.md","articles":[]},"previous":{"title":"577.(Easy) Employee Bonus","level":"1.2.28","depth":2,"path":"sql/untitled.md","ref":"sql/untitled.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/578.-medium-get-highest-answer-rate-question.md","mtime":"2019-07-11T12:08:20.603Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-11T12:08:40.430Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
