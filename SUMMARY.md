@@ -32,4 +32,7 @@
   * [577.\(Easy\) Employee Bonus](sql/untitled.md)
   * [578.\(Medium\) Get Highest Answer Rate Question](sql/578.-medium-get-highest-answer-rate-question.md)
   * [579.\(Hard\) Find Cumulative Salary of an Employee](sql/579.-find-cumulative-salary-of-an-employee.md)
+  * [580.\(Medium\) Count Student Number in Departments](sql/580.-medium-count-student-number-in-departments.md)
+  * [584.\(Easy\) Find Customer Referee](sql/untitled-2.md)
+  * [585.\(Medium\) Investments in 2016](sql/585.-medium-investments-in-2016.md)
 
