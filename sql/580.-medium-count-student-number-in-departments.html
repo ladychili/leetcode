@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>570.(Medium) 至少有5名直接下属的经理 · My Leetcode Log</title>
+        <title>580.(Medium) Count Student Number in Departments · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="571.hard-gei-ding-shu-zi-de-pin-lv-cha-xun-zhong-wei-shu.html" />
+    <link rel="next" href="untitled-2.html" />
     
     
-    <link rel="prev" href="569.hard-yuan-gong-xin-shui-zhong-wei-shu.html" />
+    <link rel="prev" href="579.-find-cumulative-salary-of-an-employee.html" />
     
 
     </head>
@@ -363,7 +363,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.19" data-path="570.medium-zhi-shao-you-5-ming-zhi-jie-xia-shu-de-jing-li.html">
+        <li class="chapter " data-level="1.2.19" data-path="570.medium-zhi-shao-you-5-ming-zhi-jie-xia-shu-de-jing-li.html">
             
                 <a href="570.medium-zhi-shao-you-5-ming-zhi-jie-xia-shu-de-jing-li.html">
             
@@ -519,7 +519,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.31" data-path="580.-medium-count-student-number-in-departments.html">
+        <li class="chapter active" data-level="1.2.31" data-path="580.-medium-count-student-number-in-departments.html">
             
                 <a href="580.-medium-count-student-number-in-departments.html">
             
@@ -593,7 +593,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >570.(Medium) 至少有5名直接下属的经理</a>
+        <a href=".." >580.(Medium) Count Student Number in Departments</a>
     </h1>
 </div>
 
@@ -608,33 +608,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="570medium-&#x81F3;&#x5C11;&#x6709;5&#x540D;&#x76F4;&#x63A5;&#x4E0B;&#x5C5E;&#x7684;&#x7ECF;&#x7406;">570.(Medium) &#x81F3;&#x5C11;&#x6709;5&#x540D;&#x76F4;&#x63A5;&#x4E0B;&#x5C5E;&#x7684;&#x7ECF;&#x7406;</h1>
-<pre><code class="lang-text">Employee
-+------+----------+-----------+----------+
-|Id    |Name       |Department |ManagerId |
-+------+----------+-----------+----------+
-|101   |John       |A           |null      |
-|102   |Dan       |A           |101       |
-|103   |James       |A           |101       |
-|104   |Amy       |A           |101       |
-|105   |Anne       |A           |101       |
-|106   |Ron       |B           |101       |
-+------+----------+-----------+----------+
+                                <h1 id="580medium-count-student-number-in-departments">580.(Medium) Count Student Number in Departments</h1>
+<pre><code class="lang-text">student
+| Column Name  | Type      |
+|--------------|-----------|
+| student_id   | Integer   |
+| student_name | String    |
+| gender       | Character |
+| dept_id      | Integer   |
 
-output
-+-------+
-| Name  |
-+-------+
-| John  |
-+-------+
+department
+| Column Name | Type    |
+|-------------|---------|
+| dept_id     | Integer |
+| dept_name   | String  |
+
+student table:
+| student_id | student_name | gender | dept_id |
+|------------|--------------|--------|---------|
+| 1          | Jack         | M      | 1       |
+| 2          | Jane         | F      | 1       |
+| 3          | Mark         | M      | 2       |
+
+department table:
+| dept_id | dept_name   |
+|---------|-------------|
+| 1       | Engineering |
+| 2       | Science     |
+| 3       | Law         |
+
+Output:
+| dept_name   | student_number |
+|-------------|----------------|
+| Engineering | 2              |
+| Science     | 1              |
+| Law         | 0              |
 </code></pre>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>
-<span class="hljs-keyword">FROM</span> Employee
-<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">IN</span>
-    (<span class="hljs-keyword">SELECT</span> managerid
-    <span class="hljs-keyword">FROM</span> Employee
-    <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> managerid
-    <span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(<span class="hljs-keyword">id</span>) &gt;= <span class="hljs-number">5</span>)
+<p>Note: &#x8F93;&#x51FA;&#x9700;&#x8981;&#x6309;&#x4EBA;&#x6570;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#x6392;&#x5E8F;&#xFF0C;dept_name&#x6309;&#x5B57;&#x6BCD;&#x8868;&#x6392;&#x5E8F;&#x3002;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    d.dept_name
+    ,<span class="hljs-keyword">COUNT</span>(s.student_id) student_number
+<span class="hljs-keyword">FROM</span>
+    student s <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> department d <span class="hljs-keyword">ON</span>
+    s.dept_id = d.dept_id
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    d.dept_name
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>, <span class="hljs-number">1</span>
 </code></pre>
 
                                 
@@ -663,12 +683,12 @@ output
 
             
                 
-                <a href="569.hard-yuan-gong-xin-shui-zhong-wei-shu.html" class="navigation navigation-prev " aria-label="Previous page: 569.(Hard) 员工薪水中位数">
+                <a href="579.-find-cumulative-salary-of-an-employee.html" class="navigation navigation-prev " aria-label="Previous page: 579.(Hard) Find Cumulative Salary of an Employee">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="571.hard-gei-ding-shu-zi-de-pin-lv-cha-xun-zhong-wei-shu.html" class="navigation navigation-next " aria-label="Next page: 571.(Hard) 给定数字的频率查询中位数">
+                <a href="untitled-2.html" class="navigation navigation-next " aria-label="Next page: 584.(Easy) Find Customer Referee">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -679,7 +699,7 @@ output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"570.(Medium) 至少有5名直接下属的经理","level":"1.2.19","depth":2,"next":{"title":"571.(Hard) 给定数字的频率查询中位数","level":"1.2.20","depth":2,"path":"sql/571.hard-gei-ding-shu-zi-de-pin-lv-cha-xun-zhong-wei-shu.md","ref":"sql/571.hard-gei-ding-shu-zi-de-pin-lv-cha-xun-zhong-wei-shu.md","articles":[]},"previous":{"title":"569.(Hard) 员工薪水中位数","level":"1.2.18","depth":2,"path":"sql/569.hard-yuan-gong-xin-shui-zhong-wei-shu.md","ref":"sql/569.hard-yuan-gong-xin-shui-zhong-wei-shu.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/570.medium-zhi-shao-you-5-ming-zhi-jie-xia-shu-de-jing-li.md","mtime":"2019-07-12T20:34:31.440Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-12T20:34:47.097Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"580.(Medium) Count Student Number in Departments","level":"1.2.31","depth":2,"next":{"title":"584.(Easy) Find Customer Referee","level":"1.2.32","depth":2,"path":"sql/untitled-2.md","ref":"sql/untitled-2.md","articles":[]},"previous":{"title":"579.(Hard) Find Cumulative Salary of an Employee","level":"1.2.30","depth":2,"path":"sql/579.-find-cumulative-salary-of-an-employee.md","ref":"sql/579.-find-cumulative-salary-of-an-employee.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <czqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/580.-medium-count-student-number-in-departments.md","mtime":"2019-07-12T20:34:35.078Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-12T20:34:47.097Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
