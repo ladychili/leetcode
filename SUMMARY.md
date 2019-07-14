@@ -34,6 +34,8 @@
   * [596.\(Easy\) 超过5名学生的课](sql/596.-chao-guo-5-ming-xue-sheng-de-ke.md)
   * [597.\(Easy\) Friend Requests I: Overall Acceptance Rate](sql/597.-easy-friend-requests-i-overall-acceptance-rate.md)
   * [601.\(Hard\) 体育馆的人流量](sql/601.-ti-yu-guan-de-ren-liu-liang-kun-nan.md)
+  * [602.\(Medium\) Friend Requests II: Who Has the Most Friends](sql/602.-medium-friend-requests-ii-who-has-the-most-friends.md)
+  * [603.\(Easy\) Consecutive Available Seats](sql/603.-easy-consecutive-available-seats.md)
   * [620.\(Easy\) 有趣的电影](sql/620.-you-qu-de-dian-ying-jian-dan.md)
   * [626.\(Medium\) 换座位](sql/626.-huan-zuo-wei-zhong-deng.md)
   * [627.\(Easy\) 交换工资](sql/627.-jiao-huan-gong-zi-jian-dan.md)
