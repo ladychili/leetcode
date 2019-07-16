@@ -43,5 +43,5 @@
   * [627.\(Easy\) 交换工资](sql/627.-jiao-huan-gong-zi-jian-dan.md)
 * [剑指offer](jianzhi-offer/README.md)
     * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
-    * [跳台阶1](tiao-tai-jie.md)
+    * [跳台阶1](jianzhi-offer/tiao-tai-jie.md)
 
