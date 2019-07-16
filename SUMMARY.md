@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Preface](README.md)
-* [Algorithms](algorithm.md)
+* [Algorithms](algorithm/README.md)
 * [Database](sql/README.md)
   * [175.\(Easy\) 组合两个表](sql/175.-zu-he-liang-ge-biao-jian-dan.md)
   * [176.\(Easy\) 第二高的薪水](sql/176.-di-er-gao-de-xin-shui-jian-dan.md)
@@ -41,5 +41,7 @@
   * [620.\(Easy\) 有趣的电影](sql/620.-you-qu-de-dian-ying-jian-dan.md)
   * [626.\(Medium\) 换座位](sql/626.-huan-zuo-wei-zhong-deng.md)
   * [627.\(Easy\) 交换工资](sql/627.-jiao-huan-gong-zi-jian-dan.md)
-* [剑指offer](jian-zhi-offer.md)
+* [剑指offer](jianzhi-offer/README.md)
+    * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
+    * [跳台阶1](tiao-tai-jie.md)
 
