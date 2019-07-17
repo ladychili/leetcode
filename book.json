@@ -1,5 +1,5 @@
 {
-    "author": "Lady Chili <czqt0@outlook.com>",
+    "author": "Lady Chili <zqt0@outlook.com>",
     "description": "This is a sample book created by gitbook",
     "extension": null,
     "generator": "site",
@@ -29,7 +29,7 @@
         "pageNumbers": false,
         "paperSize": "a4"
     },
-    "plugins": ["disqus"],
+    "plugins": ["disqus", "mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "ladychili"
