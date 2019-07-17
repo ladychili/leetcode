@@ -44,4 +44,5 @@
 * [剑指offer](jianzhi-offer/README.md)
     * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
     * [跳台阶1](jianzhi-offer/tiao-tai-jie.md)
-
+    * [求1至n的和](jianzhi-offer/sum-of-1-to-n.md)
+    * [2x1矩形覆盖](jianzhi-offer/ju-xing-fu-gai.md)
