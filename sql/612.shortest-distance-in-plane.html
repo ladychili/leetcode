@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>181.(Easy) 超过经理收入的员工 · My Leetcode Log</title>
+        <title>612.(Medium) Shortest Distance in Plane · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html" />
+    <link rel="next" href="613.shortest-distance-in-line.html" />
     
     
-    <link rel="prev" href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html" />
+    <link rel="prev" href="610.-triangle-judgement.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.6" data-path="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
+        <li class="chapter " data-level="1.3.6" data-path="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
             
                 <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
             
@@ -623,7 +623,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.38" data-path="612.shortest-distance-in-plane.html">
+        <li class="chapter active" data-level="1.3.38" data-path="612.shortest-distance-in-plane.html">
             
                 <a href="612.shortest-distance-in-plane.html">
             
@@ -794,7 +794,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >181.(Easy) 超过经理收入的员工</a>
+        <a href=".." >612.(Medium) Shortest Distance in Plane</a>
     </h1>
 </div>
 
@@ -809,15 +809,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="181easy-&#x8D85;&#x8FC7;&#x7ECF;&#x7406;&#x6536;&#x5165;&#x7684;&#x5458;&#x5DE5;">181.(Easy) &#x8D85;&#x8FC7;&#x7ECF;&#x7406;&#x6536;&#x5165;&#x7684;&#x5458;&#x5DE5;</h1>
+                                <h1 id="612medium-shortest-distance-in-a-plane">612.(Medium) Shortest Distance in a Plane</h1>
+<pre><code class="lang-text">point_2d
+| x  | y  |
+|----|----|
+| -1 | -1 |
+| 0  | 0  |
+| -1 | -2 |
+
+output
+| shortest |
+|----------|
+| 1.00     |
+</code></pre>
+<ol>
+<li>CROSS JOIN &#x6C42;&#x5F53;&#x524D;&#x70B9;&#x4E0E;&#x6BCF;&#x4E2A;&#x70B9;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#xFF1B;</li>
+<li>&#x6392;&#x9664;&#x81EA;&#x8FDE;&#x7684;records&#xFF08;&#x8DDD;&#x79BB;&#x4E3A;0&#xFF09;&#xFF1B;</li>
+<li>&#x53D6;min&#xFF0C;&#x53D6;&#x4E24;&#x4F4D;&#x5C0F;&#x6570;</li>
+</ol>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    e1.<span class="hljs-keyword">Name</span> <span class="hljs-keyword">AS</span> Employee
-<span class="hljs-keyword">FROM</span> 
-    Employee e1 <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
-    Employee e2 <span class="hljs-keyword">ON</span>
-    e1.ManagerId = e2.<span class="hljs-keyword">Id</span>
-<span class="hljs-keyword">WHERE</span> 
-    e1.Salary &gt; e2.Salary
+    <span class="hljs-keyword">ROUND</span>(
+        <span class="hljs-keyword">SQRT</span>(
+            <span class="hljs-keyword">MIN</span>(<span class="hljs-keyword">POW</span>(a.x-b.x,<span class="hljs-number">2</span>) + <span class="hljs-keyword">POW</span>(a.y-b.y,<span class="hljs-number">2</span>))
+            ),<span class="hljs-number">2</span>
+        ) shortest
+<span class="hljs-keyword">FROM</span> point_2d a <span class="hljs-keyword">CROSS</span> <span class="hljs-keyword">JOIN</span> point_2d b
+<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">NOT</span> (a.x = b.x <span class="hljs-keyword">AND</span> a.y = b.y)
 </code></pre>
 
                                 
@@ -846,12 +863,12 @@
 
             
                 
-                <a href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html" class="navigation navigation-prev " aria-label="Previous page: 180.(Medium) 连续出现的数字">
+                <a href="610.-triangle-judgement.html" class="navigation navigation-prev " aria-label="Previous page: 610.(Easy) Triangle Judgement">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 182.(Easy) 查找重复的电子邮箱">
+                <a href="613.shortest-distance-in-line.html" class="navigation navigation-next " aria-label="Next page: 613.(Easy) Shortest Distance in Line">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -862,7 +879,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"181.(Easy) 超过经理收入的员工","level":"1.3.6","depth":2,"next":{"title":"182.(Easy) 查找重复的电子邮箱","level":"1.3.7","depth":2,"path":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","ref":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","articles":[]},"previous":{"title":"180.(Medium) 连续出现的数字","level":"1.3.5","depth":2,"path":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","ref":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","mtime":"2019-07-19T15:12:02.898Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T17:06:25.628Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"612.(Medium) Shortest Distance in Plane","level":"1.3.38","depth":2,"next":{"title":"613.(Easy) Shortest Distance in Line","level":"1.3.39","depth":2,"path":"sql/613.shortest-distance-in-line.md","ref":"sql/613.shortest-distance-in-line.md","articles":[]},"previous":{"title":"610.(Easy) Triangle Judgement","level":"1.3.37","depth":2,"path":"sql/610.-triangle-judgement.md","ref":"sql/610.-triangle-judgement.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/612.shortest-distance-in-plane.md","mtime":"2019-07-19T15:52:33.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T17:06:25.628Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

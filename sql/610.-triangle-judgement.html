@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>181.(Easy) 超过经理收入的员工 · My Leetcode Log</title>
+        <title>610.(Easy) Triangle Judgement · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html" />
+    <link rel="next" href="612.shortest-distance-in-plane.html" />
     
     
-    <link rel="prev" href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html" />
+    <link rel="prev" href="608.-Tree-Node.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.6" data-path="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
+        <li class="chapter " data-level="1.3.6" data-path="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
             
                 <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html">
             
@@ -610,7 +610,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.37" data-path="610.-triangle-judgement.html">
+        <li class="chapter active" data-level="1.3.37" data-path="610.-triangle-judgement.html">
             
                 <a href="610.-triangle-judgement.html">
             
@@ -794,7 +794,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >181.(Easy) 超过经理收入的员工</a>
+        <a href=".." >610.(Easy) Triangle Judgement</a>
     </h1>
 </div>
 
@@ -809,15 +809,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="181easy-&#x8D85;&#x8FC7;&#x7ECF;&#x7406;&#x6536;&#x5165;&#x7684;&#x5458;&#x5DE5;">181.(Easy) &#x8D85;&#x8FC7;&#x7ECF;&#x7406;&#x6536;&#x5165;&#x7684;&#x5458;&#x5DE5;</h1>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    e1.<span class="hljs-keyword">Name</span> <span class="hljs-keyword">AS</span> Employee
-<span class="hljs-keyword">FROM</span> 
-    Employee e1 <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
-    Employee e2 <span class="hljs-keyword">ON</span>
-    e1.ManagerId = e2.<span class="hljs-keyword">Id</span>
-<span class="hljs-keyword">WHERE</span> 
-    e1.Salary &gt; e2.Salary
+                                <h1 id="610easy-triangle-judgement">610.(Easy) Triangle Judgement</h1>
+<pre><code class="lang-text">triangle
+| x  | y  | z  |
+|----|----|----|
+| 13 | 15 | 30 |
+| 10 | 20 | 15 |
+
+output
+| x  | y  | z  | triangle |
+|----|----|----|----------|
+| 13 | 15 | 30 | No       |
+| 10 | 20 | 15 | Yes      |
+</code></pre>
+<p>&#x4E24;&#x8FB9;&#x4E4B;&#x548C;&#x5927;&#x4E8E;&#x7B2C;&#x4E09;&#x8FB9;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    *
+    , (<span class="hljs-keyword">CASE</span> 
+       <span class="hljs-keyword">WHEN</span> (x&lt;y+z <span class="hljs-keyword">AND</span> y&lt;x+z <span class="hljs-keyword">AND</span> z&lt;x+y) <span class="hljs-keyword">THEN</span> <span class="hljs-string">&apos;Yes&apos;</span>
+       <span class="hljs-keyword">ELSE</span> <span class="hljs-string">&apos;No&apos;</span>
+       <span class="hljs-keyword">END</span>) triangle
+<span class="hljs-keyword">FROM</span>
+    triangle
 </code></pre>
 
                                 
@@ -846,12 +859,12 @@
 
             
                 
-                <a href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html" class="navigation navigation-prev " aria-label="Previous page: 180.(Medium) 连续出现的数字">
+                <a href="608.-Tree-Node.html" class="navigation navigation-prev " aria-label="Previous page: 608.(Medium) Tree Node">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 182.(Easy) 查找重复的电子邮箱">
+                <a href="612.shortest-distance-in-plane.html" class="navigation navigation-next " aria-label="Next page: 612.(Medium) Shortest Distance in Plane">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -862,7 +875,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"181.(Easy) 超过经理收入的员工","level":"1.3.6","depth":2,"next":{"title":"182.(Easy) 查找重复的电子邮箱","level":"1.3.7","depth":2,"path":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","ref":"sql/182.-cha-zhao-zhong-fu-de-dian-zi-you-xiang-jian-dan.md","articles":[]},"previous":{"title":"180.(Medium) 连续出现的数字","level":"1.3.5","depth":2,"path":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","ref":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","mtime":"2019-07-19T15:12:02.898Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T17:06:25.628Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"610.(Easy) Triangle Judgement","level":"1.3.37","depth":2,"next":{"title":"612.(Medium) Shortest Distance in Plane","level":"1.3.38","depth":2,"path":"sql/612.shortest-distance-in-plane.md","ref":"sql/612.shortest-distance-in-plane.md","articles":[]},"previous":{"title":"608.(Medium) Tree Node","level":"1.3.36","depth":2,"path":"sql/608.-Tree-Node.md","ref":"sql/608.-Tree-Node.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/610.-triangle-judgement.md","mtime":"2019-07-19T15:27:08.746Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-19T17:06:25.628Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
