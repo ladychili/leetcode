@@ -37,6 +37,8 @@
   * [601.\(Hard\) 体育馆的人流量](sql/601.-ti-yu-guan-de-ren-liu-liang-kun-nan.md)
   * [602.\(Medium\) Friend Requests II: Who Has the Most Friends](sql/602.-medium-friend-requests-ii-who-has-the-most-friends.md)
   * [603.\(Easy\) Consecutive Available Seats](sql/603.-easy-consecutive-available-seats.md)
+  * [614.\(Medium\) Second Degree Follower](sql/614.-Second-Degree-Follower.md)
+  * [615.\(Hard\) Average Salary: Departments VS Company](sql/615.-AverageSalaryDepartmentsVSCompany.md)
   * [607.\(Easy\) Sales Person](sql/607.-easy-sales-person.md)
   * [608.\(Medium\) Tree Node](sql/608.-Tree-Node.md)
   * [610.\(Easy\) Triangle Judgement](sql/610.-triangle-judgement.md)
