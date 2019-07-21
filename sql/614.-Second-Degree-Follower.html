@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>626.(Medium) 换座位 · My Leetcode Log</title>
+        <title>614.(Medium) Second Degree Follower · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="627.-jiao-huan-gong-zi-jian-dan.html" />
+    <link rel="next" href="615.-AverageSalaryDepartmentsVSCompany.html" />
     
     
-    <link rel="prev" href="620.-you-qu-de-dian-ying-jian-dan.html" />
+    <link rel="prev" href="603.-easy-consecutive-available-seats.html" />
     
 
     </head>
@@ -584,7 +584,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.35" data-path="614.-Second-Degree-Follower.html">
+        <li class="chapter active" data-level="1.3.35" data-path="614.-Second-Degree-Follower.html">
             
                 <a href="614.-Second-Degree-Follower.html">
             
@@ -688,7 +688,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.43" data-path="626.-huan-zuo-wei-zhong-deng.html">
+        <li class="chapter " data-level="1.3.43" data-path="626.-huan-zuo-wei-zhong-deng.html">
             
                 <a href="626.-huan-zuo-wei-zhong-deng.html">
             
@@ -846,7 +846,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >626.(Medium) 换座位</a>
+        <a href=".." >614.(Medium) Second Degree Follower</a>
     </h1>
 </div>
 
@@ -861,56 +861,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="626medium-&#x6362;&#x5EA7;&#x4F4D;">626.(Medium) &#x6362;&#x5EA7;&#x4F4D;</h1>
-<pre><code class="lang-text">seat
-+---------+---------+
-|    id   | student |
-+---------+---------+
-|    1    | Abbot   |
-|    2    | Doris   |
-|    3    | Emerson |
-|    4    | Green   |
-|    5    | Jeames  |
-+---------+---------+
-
-
-Output
-+---------+---------+
-|    id   | student |
-+---------+---------+
-|    1    | Doris   |
-|    2    | Abbot   |
-|    3    | Green   |
-|    4    | Emerson |
-|    5    | Jeames  |
-+---------+---------+
-</code></pre>
-<h4 id="solution-1-&#x7528;-coalesce-&#x548C;-case">Solution 1. &#x7528; coalesce() &#x548C; case()</h4>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
-    a.<span class="hljs-keyword">id</span> <span class="hljs-keyword">id</span>,
-    <span class="hljs-keyword">COALESCE</span>(b.student, a.student) student
+                                <h1 id="614medium-second-degree-follower">614.(Medium) Second Degree Follower</h1>
+<p>follower&#x7684;follower&#x6570;&#x91CF;</p>
+<pre><code>follow
++-------------+------------+
+| followee    | follower   |
++-------------+------------+
+|     A       |     B      |
+|     B       |     C      |
+|     B       |     D      |
+|     D       |     E      |
++-------------+------------+
+output:
++-------------+------------+
+| follower    | num        |
++-------------+------------+
+|     B       |  2         |
+|     D       |  1         |
++-------------+------------+
+</code></pre><p>&#x601D;&#x8DEF;&#xFF1A;join, group by, count</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
+    a.follower follower, <span class="hljs-comment">-- b.followeee didn&apos;t pass all cases</span>
+    <span class="hljs-keyword">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> b.follower) <span class="hljs-keyword">num</span>
 <span class="hljs-keyword">FROM</span>
-    seat a <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> seat b 
-    <span class="hljs-keyword">ON</span> b.<span class="hljs-keyword">id</span> = (<span class="hljs-keyword">CASE</span> 
-               <span class="hljs-keyword">WHEN</span> a.<span class="hljs-keyword">id</span>%<span class="hljs-number">2</span>=<span class="hljs-number">1</span> <span class="hljs-keyword">THEN</span> a.<span class="hljs-keyword">id</span>+<span class="hljs-number">1</span>
-               <span class="hljs-keyword">ELSE</span> a.<span class="hljs-keyword">id</span><span class="hljs-number">-1</span>
-               <span class="hljs-keyword">END</span>)
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> a.<span class="hljs-keyword">id</span>
+    follow a <span class="hljs-keyword">JOIN</span> follow b <span class="hljs-keyword">ON</span>
+    a.follower = b.followee
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
+    b.followee
 </code></pre>
-<p>&#x6267;&#x884C;&#x7528;&#x65F6; : 269 ms , &#x5728;&#x6240;&#x6709; MySQL &#x63D0;&#x4EA4;&#x4E2D;&#x51FB;&#x8D25;&#x4E86; 97.19% &#x7684;&#x7528;&#x6237;</p>
-<h4 id="solution-2-&#x7528;-ifnull-&#x548C;-if">Solution 2. &#x7528; ifnull() &#x548C; if()</h4>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
-    a.<span class="hljs-keyword">id</span> <span class="hljs-keyword">id</span>,
-    <span class="hljs-keyword">IFNULL</span>(b.student, a.student) student
-<span class="hljs-keyword">FROM</span>
-    seat a <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> seat b 
-    <span class="hljs-keyword">ON</span> b.<span class="hljs-keyword">id</span> = <span class="hljs-keyword">IF</span>(a.<span class="hljs-keyword">id</span>%<span class="hljs-number">2</span>=<span class="hljs-number">1</span>, 
-                 a.<span class="hljs-keyword">id</span>+<span class="hljs-number">1</span>, 
-                 a.<span class="hljs-keyword">id</span><span class="hljs-number">-1</span>)
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> a.<span class="hljs-keyword">id</span>
-</code></pre>
-<p>&#x6267;&#x884C;&#x7528;&#x65F6; : 265 ms , &#x5728;&#x6240;&#x6709; MySQL &#x63D0;&#x4EA4;&#x4E2D;&#x51FB;&#x8D25;&#x4E86; 98.36% &#x7684;&#x7528;&#x6237;</p>
-<p>Summary&#xFF1A;<br>&#x4F3C;&#x4E4E;&#x5DEE;&#x4E0D;&#x591A;&#x6548;&#x7387;&#xFF0C;solution2&#x662F;&#x770B;&#x7684;&#x7F51;&#x53CB;&#x4EE3;&#x7801;&#x3002;<code>CASE()</code> &#x8FD8;&#x662F;&#x6BD4; <code>IF()</code> &#x7528;&#x5904;&#x5E7F;&#x4E00;&#x4E9B;&#xFF0C;&#x591A;&#x7EC3;&#x3002;</p>
+<p>&#x5907;&#x6CE8;&#xFF1A;somehow &#x5982;&#x679C;output&#x8868;&#x7B2C;&#x4E00;&#x5217;&#x9009;<code>b.followee</code>&#x4F1A;&#x51FA;&#x73B0;&#x90E8;&#x5206;records&#x5927;&#x5C0F;&#x5199;&#x6DF7;&#x4E71;&#x7684;&#x73B0;&#x8C61;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x5168;&#x90E8;&#x7528;&#x4F8B;&#x3002;</p>
 
                                 
                                 </section>
@@ -938,12 +917,12 @@ Output
 
             
                 
-                <a href="620.-you-qu-de-dian-ying-jian-dan.html" class="navigation navigation-prev " aria-label="Previous page: 620.(Easy) 有趣的电影">
+                <a href="603.-easy-consecutive-available-seats.html" class="navigation navigation-prev " aria-label="Previous page: 603.(Easy) Consecutive Available Seats">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="627.-jiao-huan-gong-zi-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 627.(Easy) 交换工资">
+                <a href="615.-AverageSalaryDepartmentsVSCompany.html" class="navigation navigation-next " aria-label="Next page: 615.(Hard) Average Salary: Departments VS Company">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -954,7 +933,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"626.(Medium) 换座位","level":"1.3.43","depth":2,"next":{"title":"627.(Easy) 交换工资","level":"1.3.44","depth":2,"path":"sql/627.-jiao-huan-gong-zi-jian-dan.md","ref":"sql/627.-jiao-huan-gong-zi-jian-dan.md","articles":[]},"previous":{"title":"620.(Easy) 有趣的电影","level":"1.3.42","depth":2,"path":"sql/620.-you-qu-de-dian-ying-jian-dan.md","ref":"sql/620.-you-qu-de-dian-ying-jian-dan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/626.-huan-zuo-wei-zhong-deng.md","mtime":"2019-07-19T20:00:18.585Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T10:00:02.274Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"614.(Medium) Second Degree Follower","level":"1.3.35","depth":2,"next":{"title":"615.(Hard) Average Salary: Departments VS Company","level":"1.3.36","depth":2,"path":"sql/615.-AverageSalaryDepartmentsVSCompany.md","ref":"sql/615.-AverageSalaryDepartmentsVSCompany.md","articles":[]},"previous":{"title":"603.(Easy) Consecutive Available Seats","level":"1.3.34","depth":2,"path":"sql/603.-easy-consecutive-available-seats.md","ref":"sql/603.-easy-consecutive-available-seats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/614.-Second-Degree-Follower.md","mtime":"2019-07-21T08:52:00.111Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T10:00:02.274Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
