@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>607.(Easy) Sales Person · My Leetcode Log</title>
+        <title>618.(Hard) Students Report By Geography · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="608.-Tree-Node.html" />
+    <link rel="next" href="620.-you-qu-de-dian-ying-jian-dan.html" />
     
     
-    <link rel="prev" href="603.-easy-consecutive-available-seats.html" />
+    <link rel="prev" href="615.-AverageSalaryDepartmentsVSCompany.html" />
     
 
     </head>
@@ -584,7 +584,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.35" data-path="607.-easy-sales-person.html">
+        <li class="chapter " data-level="1.3.35" data-path="607.-easy-sales-person.html">
             
                 <a href="607.-easy-sales-person.html">
             
@@ -675,7 +675,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.42" data-path="618.StudentsReportByGeography.html">
+        <li class="chapter active" data-level="1.3.42" data-path="618.StudentsReportByGeography.html">
             
                 <a href="618.StudentsReportByGeography.html">
             
@@ -859,7 +859,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >607.(Easy) Sales Person</a>
+        <a href=".." >618.(Hard) Students Report By Geography</a>
     </h1>
 </div>
 
@@ -874,53 +874,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="607easy-sales-person">607.(Easy) Sales Person</h1>
-<pre><code class="lang-text">salesperson
-+----------+------+--------+-----------------+-----------+
-| sales_id | name | salary | commission_rate | hire_date |
-+----------+------+--------+-----------------+-----------+
-|   1      | John | 100000 |     6           | 4/1/2006  |
-|   2      | Amy  | 120000 |     5           | 5/1/2010  |
-|   3      | Mark | 65000  |     12          | 12/25/2008|
-|   4      | Pam  | 25000  |     25          | 1/1/2005  |
-|   5      | Alex | 50000  |     10          | 2/3/2007  |
-+----------+------+--------+-----------------+-----------+
-company
-+---------+--------+------------+
-| com_id  |  name  |    city    |
-+---------+--------+------------+
-|   1     |  RED   |   Boston   |
-|   2     | ORANGE |   New York |
-|   3     | YELLOW |   Boston   |
-|   4     | GREEN  |   Austin   |
-+---------+--------+------------+
-orders
-+----------+------------+---------+----------+--------+
-| order_id | order_date | com_id  | sales_id | amount |
-+----------+------------+---------+----------+--------+
-| 1        |   1/1/2014 |    3    |    4     | 100000 |
-| 2        |   2/1/2014 |    4    |    5     | 5000   |
-| 3        |   3/1/2014 |    1    |    1     | 50000  |
-| 4        |   4/1/2014 |    1    |    4     | 25000  |
-+----------+------------+---------+----------+--------+
+                                <h1 id="618hard-students-report-by-geography">618.(Hard) Students Report By Geography</h1>
+<pre><code>student
+| name   | continent |
+|--------|-----------|
+| Jack   | America   |
+| Pascal | Europe    |
+| Xi     | Asia      |
+| Jane   | America   |
 
-Output
-+------+
-| name | 
-+------+
-| Amy  | 
-| Mark | 
-| Alex |
-+------+
-</code></pre>
-<p>Output the name of those who didn&apos;t have sales to the company &quot;RED&quot;</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>
-<span class="hljs-keyword">FROM</span> salesperson
-<span class="hljs-keyword">WHERE</span> sales_id <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> o.sales_id  <span class="hljs-comment">--those who have sales to &quot;RED&quot;</span>
-                       <span class="hljs-keyword">FROM</span> orders o <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> company c <span class="hljs-keyword">ON</span>
-                            o.com_id = c.com_id
-                       <span class="hljs-keyword">WHERE</span> c.<span class="hljs-keyword">name</span> = <span class="hljs-string">&apos;RED&apos;</span>
-                       <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> o.sales_id)
+output
+| America | Asia | Europe |
+|---------|------|--------|
+| Jack    | Xi   | Pascal |
+| Jane    |      |        |
+</code></pre><p>&#x4E3A;&#x5565;&#x8981;&#x7528;sql&#x505A;excel&#x7684;&#x4E8B; = =</p>
+<p>Solution for MS SQL Server</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> America, Asia, Europe
+<span class="hljs-keyword">FROM</span>(
+    <span class="hljs-keyword">SELECT</span> continentorder,
+    <span class="hljs-keyword">MAX</span>(<span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> continent = <span class="hljs-string">&apos;America&apos;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">END</span> )<span class="hljs-keyword">AS</span> America,
+    <span class="hljs-keyword">MAX</span>(<span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> continent = <span class="hljs-string">&apos;Europe&apos;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">END</span> )<span class="hljs-keyword">AS</span> Europe,
+    <span class="hljs-keyword">MAX</span>(<span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> continent = <span class="hljs-string">&apos;Asia&apos;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">END</span> )<span class="hljs-keyword">AS</span> Asia
+    <span class="hljs-keyword">FROM</span> (
+        <span class="hljs-keyword">SELECT</span> *,
+        ROW_NUMBER()<span class="hljs-keyword">OVER</span>(<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> continent <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">name</span>) <span class="hljs-keyword">AS</span> continentorder
+        <span class="hljs-keyword">FROM</span> student
+    ) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">SOURCE</span>
+    <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> continentorder
+)temp
 </code></pre>
 
                                 
@@ -949,12 +931,12 @@ Output
 
             
                 
-                <a href="603.-easy-consecutive-available-seats.html" class="navigation navigation-prev " aria-label="Previous page: 603.(Easy) Consecutive Available Seats">
+                <a href="615.-AverageSalaryDepartmentsVSCompany.html" class="navigation navigation-prev " aria-label="Previous page: 615.(Hard) Average Salary: Departments VS Company">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="608.-Tree-Node.html" class="navigation navigation-next " aria-label="Next page: 608.(Medium) Tree Node">
+                <a href="620.-you-qu-de-dian-ying-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 620.(Easy) 有趣的电影">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -965,7 +947,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"607.(Easy) Sales Person","level":"1.3.35","depth":2,"next":{"title":"608.(Medium) Tree Node","level":"1.3.36","depth":2,"path":"sql/608.-Tree-Node.md","ref":"sql/608.-Tree-Node.md","articles":[]},"previous":{"title":"603.(Easy) Consecutive Available Seats","level":"1.3.34","depth":2,"path":"sql/603.-easy-consecutive-available-seats.md","ref":"sql/603.-easy-consecutive-available-seats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/607.-easy-sales-person.md","mtime":"2019-07-21T10:00:51.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-22T10:59:32.617Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"618.(Hard) Students Report By Geography","level":"1.3.42","depth":2,"next":{"title":"620.(Easy) 有趣的电影","level":"1.3.43","depth":2,"path":"sql/620.-you-qu-de-dian-ying-jian-dan.md","ref":"sql/620.-you-qu-de-dian-ying-jian-dan.md","articles":[]},"previous":{"title":"615.(Hard) Average Salary: Departments VS Company","level":"1.3.41","depth":2,"path":"sql/615.-AverageSalaryDepartmentsVSCompany.md","ref":"sql/615.-AverageSalaryDepartmentsVSCompany.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/618.StudentsReportByGeography.md","mtime":"2019-07-22T10:59:00.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-22T10:59:32.617Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
