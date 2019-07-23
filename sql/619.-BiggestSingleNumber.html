@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>580.(Medium) Count Student Number in Departments · My Leetcode Log</title>
+        <title>619.(Easy) Biggest Single Number · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="untitled-2.html" />
+    <link rel="next" href="620.-you-qu-de-dian-ying-jian-dan.html" />
     
     
-    <link rel="prev" href="579.-find-cumulative-salary-of-an-employee.html" />
+    <link rel="prev" href="618.StudentsReportByGeography.html" />
     
 
     </head>
@@ -454,7 +454,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.25" data-path="580.-medium-count-student-number-in-departments.html">
+        <li class="chapter " data-level="1.3.25" data-path="580.-medium-count-student-number-in-departments.html">
             
                 <a href="580.-medium-count-student-number-in-departments.html">
             
@@ -688,7 +688,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.43" data-path="619.-BiggestSingleNumber.html">
+        <li class="chapter active" data-level="1.3.43" data-path="619.-BiggestSingleNumber.html">
             
                 <a href="619.-BiggestSingleNumber.html">
             
@@ -872,7 +872,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >580.(Medium) Count Student Number in Departments</a>
+        <a href=".." >619.(Easy) Biggest Single Number</a>
     </h1>
 </div>
 
@@ -887,53 +887,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="580medium-count-student-number-in-departments">580.(Medium) Count Student Number in Departments</h1>
-<pre><code class="lang-text">student
-| Column Name  | Type      |
-|--------------|-----------|
-| student_id   | Integer   |
-| student_name | String    |
-| gender       | Character |
-| dept_id      | Integer   |
+                                <h1 id="619easy-biggest-single-number">619.(Easy) Biggest Single Number</h1>
+<p>Find the biggest number that only appears once.</p>
+<pre><code>my_numbers
 
-department
-| Column Name | Type    |
-|-------------|---------|
-| dept_id     | Integer |
-| dept_name   | String  |
++---+
+|num|
++---+
+| 8 |
+| 8 |
+| 3 |
+| 3 |
+| 1 |
+| 4 |
+| 5 |
+| 6 | 
 
-student table:
-| student_id | student_name | gender | dept_id |
-|------------|--------------|--------|---------|
-| 1          | Jack         | M      | 1       |
-| 2          | Jane         | F      | 1       |
-| 3          | Mark         | M      | 2       |
-
-department table:
-| dept_id | dept_name   |
-|---------|-------------|
-| 1       | Engineering |
-| 2       | Science     |
-| 3       | Law         |
-
-Output:
-| dept_name   | student_number |
-|-------------|----------------|
-| Engineering | 2              |
-| Science     | 1              |
-| Law         | 0              |
-</code></pre>
-<p>Note: &#x8F93;&#x51FA;&#x9700;&#x8981;&#x6309;&#x4EBA;&#x6570;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#x6392;&#x5E8F;&#xFF0C;dept_name&#x6309;&#x5B57;&#x6BCD;&#x8868;&#x6392;&#x5E8F;&#x3002;</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
-    d.dept_name
-    ,<span class="hljs-keyword">COUNT</span>(s.student_id) student_number
-<span class="hljs-keyword">FROM</span>
-    student s <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> department d <span class="hljs-keyword">ON</span>
-    s.dept_id = d.dept_id
-<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
-    d.dept_name
-<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
-    <span class="hljs-number">2</span> <span class="hljs-keyword">DESC</span>, <span class="hljs-number">1</span>
++---+
+|num|
++---+
+| 6 |
+</code></pre><p>&#x4E3A;&#x4EC0;&#x4E48;&#x8FD9;&#x91CC;&#x5FC5;&#x987B;&#x5957;&#x4E00;&#x4E2A;subquery.. 
+&#x4E3A;&#x4EC0;&#x4E48;&#x76F4;&#x63A5;SELECT MAX()&#x9009;&#x4E0D;&#x51FA;&#x6700;&#x5927;&#x503C;..</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">MAX</span>(<span class="hljs-keyword">num</span>) <span class="hljs-keyword">num</span>
+<span class="hljs-keyword">FROM</span> (
+    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">num</span>
+    <span class="hljs-keyword">FROM</span> my_numbers
+    <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">num</span>
+    <span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(*) = <span class="hljs-number">1</span>
+) t
 </code></pre>
 
                                 
@@ -962,12 +944,12 @@ Output:
 
             
                 
-                <a href="579.-find-cumulative-salary-of-an-employee.html" class="navigation navigation-prev " aria-label="Previous page: 579.(Hard) Find Cumulative Salary of an Employee">
+                <a href="618.StudentsReportByGeography.html" class="navigation navigation-prev " aria-label="Previous page: 618.(Hard) Students Report By Geography">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="untitled-2.html" class="navigation navigation-next " aria-label="Next page: 584.(Easy) Find Customer Referee">
+                <a href="620.-you-qu-de-dian-ying-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 620.(Easy) 有趣的电影">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -978,7 +960,7 @@ Output:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"580.(Medium) Count Student Number in Departments","level":"1.3.25","depth":2,"next":{"title":"584.(Easy) Find Customer Referee","level":"1.3.26","depth":2,"path":"sql/untitled-2.md","ref":"sql/untitled-2.md","articles":[]},"previous":{"title":"579.(Hard) Find Cumulative Salary of an Employee","level":"1.3.24","depth":2,"path":"sql/579.-find-cumulative-salary-of-an-employee.md","ref":"sql/579.-find-cumulative-salary-of-an-employee.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/580.-medium-count-student-number-in-departments.md","mtime":"2019-07-23T15:02:39.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-23T15:18:11.860Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"619.(Easy) Biggest Single Number","level":"1.3.43","depth":2,"next":{"title":"620.(Easy) 有趣的电影","level":"1.3.44","depth":2,"path":"sql/620.-you-qu-de-dian-ying-jian-dan.md","ref":"sql/620.-you-qu-de-dian-ying-jian-dan.md","articles":[]},"previous":{"title":"618.(Hard) Students Report By Geography","level":"1.3.42","depth":2,"path":"sql/618.StudentsReportByGeography.md","ref":"sql/618.StudentsReportByGeography.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/619.-BiggestSingleNumber.md","mtime":"2019-07-23T15:17:31.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-23T15:18:11.860Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
