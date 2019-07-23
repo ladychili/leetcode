@@ -45,6 +45,7 @@
   * [614.\(Medium\) Second Degree Follower](sql/614.-Second-Degree-Follower.md)
   * [615.\(Hard\) Average Salary: Departments VS Company](sql/615.-AverageSalaryDepartmentsVSCompany.md)
   * [618.\(Hard\) Students Report By Geography](sql/618.StudentsReportByGeography.md)
+  * [619.\(Easy\) Biggest Single Number](sql/619.-BiggestSingleNumber.md)
   * [620.\(Easy\) 有趣的电影](sql/620.-you-qu-de-dian-ying-jian-dan.md)
   * [626.\(Medium\) 换座位](sql/626.-huan-zuo-wei-zhong-deng.md)
   * [627.\(Easy\) 交换工资](sql/627.-jiao-huan-gong-zi-jian-dan.md)
