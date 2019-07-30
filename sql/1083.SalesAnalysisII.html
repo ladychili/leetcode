@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>627.(Easy) 交换工资 · My Leetcode Log</title>
+        <title>1083.(Easy) Sales Analysis II · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="2333明明是交换性别！">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
         <meta name="author" content="Lady Chili <zqt0@outlook.com>">
         
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="1045.-CustomersWhoBoughtAllProducts.html" />
+    <link rel="next" href="1084.SalesAnalysisIII.html" />
     
     
-    <link rel="prev" href="626.-huan-zuo-wei-zhong-deng.html" />
+    <link rel="prev" href="1082.SalesAnalysisI.html" />
     
 
     </head>
@@ -727,7 +727,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.46" data-path="627.-jiao-huan-gong-zi-jian-dan.html">
+        <li class="chapter " data-level="1.3.46" data-path="627.-jiao-huan-gong-zi-jian-dan.html">
             
                 <a href="627.-jiao-huan-gong-zi-jian-dan.html">
             
@@ -857,7 +857,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.56" data-path="1083.SalesAnalysisII.html">
+        <li class="chapter active" data-level="1.3.56" data-path="1083.SalesAnalysisII.html">
             
                 <a href="1083.SalesAnalysisII.html">
             
@@ -1028,7 +1028,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >627.(Easy) 交换工资</a>
+        <a href=".." >1083.(Easy) Sales Analysis II</a>
     </h1>
 </div>
 
@@ -1043,12 +1043,65 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="627easy-&#x4EA4;&#x6362;&#x5DE5;&#x8D44;">627.(Easy) &#x4EA4;&#x6362;&#x5DE5;&#x8D44;</h1>
-<pre><code class="lang-sql"><span class="hljs-keyword">UPDATE</span> salary
-    <span class="hljs-keyword">SET</span> sex = (<span class="hljs-keyword">CASE</span> sex 
-               <span class="hljs-keyword">WHEN</span> <span class="hljs-string">&apos;m&apos;</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">&apos;f&apos;</span>
-               <span class="hljs-keyword">ELSE</span> <span class="hljs-string">&apos;m&apos;</span>
-               <span class="hljs-keyword">END</span>)
+                                <h1 id="1083easy-sales-analysis-ii">1083.(Easy) Sales Analysis II</h1>
+<p>&#x9009;&#x51FA;&#x4E70;&#x4E86;s8&#x4F46;&#x6CA1;&#x4E70;iPhone&#x7684;&#x4EBA; 2333 </p>
+<p>Report the buyers who have bought S8 but not iPhone. </p>
+<pre><code>Product table:
++------------+--------------+------------+
+| product_id | product_name | unit_price |
++------------+--------------+------------+
+| 1          | S8           | 1000       |
+| 2          | G4           | 800        |
+| 3          | iPhone       | 1400       |
++------------+--------------+------------+
+
+Sales table:
++-----------+------------+----------+------------+----------+-------+
+| seller_id | product_id | buyer_id | sale_date  | quantity | price |
++-----------+------------+----------+------------+----------+-------+
+| 1         | 1          | 1        | 2019-01-21 | 2        | 2000  |
+| 1         | 2          | 2        | 2019-02-17 | 1        | 800   |
+| 2         | 1          | 3        | 2019-06-02 | 1        | 800   |
+| 3         | 3          | 3        | 2019-05-13 | 2        | 2800  |
++-----------+------------+----------+------------+----------+-------+
+
+Result table:
++-------------+
+| buyer_id    |
++-------------+
+| 1           |
++-------------+
+The buyer with id 1 bought an S8 but didn&apos;t buy an iPhone. The buyer with id 3 bought both.
+</code></pre><pre><code class="lang-sql">
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> s.buyer_id
+<span class="hljs-keyword">FROM</span> Sales s <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Product p <span class="hljs-keyword">ON</span>
+    s.product_id = p.product_id
+<span class="hljs-keyword">WHERE</span> p.product_name = <span class="hljs-string">&apos;S8&apos;</span> <span class="hljs-keyword">AND</span> 
+      s.buyer_id <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> s.buyer_id
+                        <span class="hljs-keyword">FROM</span> Sales s <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Product p <span class="hljs-keyword">ON</span>
+                            s.product_id = p.product_id
+                        <span class="hljs-keyword">WHERE</span> p.product_name = <span class="hljs-string">&apos;iPhone&apos;</span>)
+</code></pre>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x6709;&#x8DA3;&#x7684;&#x601D;&#x8DEF;&#xFF0C;&#x7528;&#x4EA4;&#x5E76;&#x8865;&#x4E2D;&#x7684;&#x8865;&#x96C6;&#x3002;</p>
+<ol>
+<li>INTERSECT</li>
+<li>UNION</li>
+<li>EXCEPT/MINUS</li>
+</ol>
+<p>&#x7136;&#x800C;MySql&#x4E0D;&#x652F;&#x6301;&#x9664;UNION&#x4E4B;&#x5916;&#x7684;&#x96C6;&#x5408;&#x8FD0;&#x7B97;&#x3002;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x7528; NOT IN &#x4EE3;&#x66FF;&#x3002;</p>
+<pre><code class="lang-sql">(
+    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> s.buyer_id
+    <span class="hljs-keyword">FROM</span> Sales s <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Product p <span class="hljs-keyword">ON</span>
+        s.product_id = p.product_id
+    <span class="hljs-keyword">WHERE</span> p.product_name = <span class="hljs-string">&apos;S8&apos;</span> 
+    )
+<span class="hljs-keyword">EXCEPT</span> <span class="hljs-comment">-- AND s.buyer_id NOT IN</span>
+(
+    <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DISTINCT</span> s.buyer_id
+    <span class="hljs-keyword">FROM</span> Sales s <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Product p <span class="hljs-keyword">ON</span>
+        s.product_id = p.product_id
+    <span class="hljs-keyword">WHERE</span> p.product_name = <span class="hljs-string">&apos;iPhone&apos;</span>
+)
 </code></pre>
 
                                 
@@ -1077,12 +1130,12 @@
 
             
                 
-                <a href="626.-huan-zuo-wei-zhong-deng.html" class="navigation navigation-prev " aria-label="Previous page: 626.(Medium) 换座位">
+                <a href="1082.SalesAnalysisI.html" class="navigation navigation-prev " aria-label="Previous page: 1082.(Easy) Sales Analysis I">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="1045.-CustomersWhoBoughtAllProducts.html" class="navigation navigation-next " aria-label="Next page: 1045.(Medium) Customers Who Bought All Products">
+                <a href="1084.SalesAnalysisIII.html" class="navigation navigation-next " aria-label="Next page: 1084.(Easy) Sales Analysis III">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1093,7 +1146,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"2333明明是交换性别！","title":"627.(Easy) 交换工资","level":"1.3.46","depth":2,"next":{"title":"1045.(Medium) Customers Who Bought All Products","level":"1.3.47","depth":2,"path":"sql/1045.-CustomersWhoBoughtAllProducts.md","ref":"sql/1045.-CustomersWhoBoughtAllProducts.md","articles":[]},"previous":{"title":"626.(Medium) 换座位","level":"1.3.45","depth":2,"path":"sql/626.-huan-zuo-wei-zhong-deng.md","ref":"sql/626.-huan-zuo-wei-zhong-deng.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/627.-jiao-huan-gong-zi-jian-dan.md","mtime":"2019-07-30T22:55:26.831Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-30T23:48:50.721Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1083.(Easy) Sales Analysis II","level":"1.3.56","depth":2,"next":{"title":"1084.(Easy) Sales Analysis III","level":"1.3.57","depth":2,"path":"sql/1084.SalesAnalysisIII.md","ref":"sql/1084.SalesAnalysisIII.md","articles":[]},"previous":{"title":"1082.(Easy) Sales Analysis I","level":"1.3.55","depth":2,"path":"sql/1082.SalesAnalysisI.md","ref":"sql/1082.SalesAnalysisI.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1083.SalesAnalysisII.md","mtime":"2019-07-30T23:34:13.417Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-30T23:48:50.721Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
