@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Database · My Leetcode Log</title>
+        <title>1097.(Hard) Game Play Analysis V · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="175.-zu-he-liang-ge-biao-jian-dan.html" />
+    <link rel="next" href="../jianzhi-offer/" />
     
     
-    <link rel="prev" href="../algorithm/" />
+    <link rel="prev" href="1084.SalesAnalysisIII.html" />
     
 
     </head>
@@ -128,7 +128,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="./">
             
                 <a href="./">
             
@@ -883,7 +883,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.58" data-path="1097.GamePlayAnalysisV.html">
+        <li class="chapter active" data-level="1.3.58" data-path="1097.GamePlayAnalysisV.html">
             
                 <a href="1097.GamePlayAnalysisV.html">
             
@@ -1054,7 +1054,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Database</a>
+        <a href=".." >1097.(Hard) Game Play Analysis V</a>
     </h1>
 </div>
 
@@ -1069,8 +1069,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="database">Database</h1>
-<p>SQL &#x6BCF;&#x65E5;5&#x9898;&#x3002;</p>
+                                <h1 id="1097hard-game-play-analysis-v">1097.(Hard) Game Play Analysis V</h1>
+<p>&#x6C42;<code>&#x6BCF;&#x5929;</code>(&#x82E5;&#x6709;)&#x7684; <code>new install&#x6570;</code> &#x4EE5;&#x53CA; <code>&#x6B21;&#x65E5;&#x7559;&#x5B58;&#x7387;</code></p>
+<pre><code>Activity table:
++-----------+-----------+------------+--------------+
+| player_id | device_id | event_date | games_played |
++-----------+-----------+------------+--------------+
+| 1         | 2         | 2016-03-01 | 5            |
+| 1         | 2         | 2016-03-02 | 6            |
+| 2         | 3         | 2017-06-25 | 1            |
+| 3         | 1         | 2016-03-01 | 0            |
+| 3         | 4         | 2016-07-03 | 5            |
++-----------+-----------+------------+--------------+
+
+Result table:
++------------+----------+----------------+
+| install_dt | installs | Day1_retention |
++------------+----------+----------------+
+| 2016-03-01 | 2        | 0.50           |
+| 2017-06-25 | 1        | 0.00           |
++------------+----------+----------------+
+</code></pre><p>&#x8FD9;&#x9053;&#x9898;&#x548C;&#x4E0A;&#x5468;pdd&#x7B14;&#x8BD5;&#x7B2C;&#x4E09;&#x9898;&#x597D;&#x50CF;&#x554A;&#xFF0C;pdd&#x8981;&#x6C42;&#x7B2C;29&#x65E5;&#x7559;&#x5B58;&#x7387;&#x8981;&#x7528;<code>lead()</code>&#x51FD;&#x6570;&#xFF0C;&#x6BD4;&#x8FD9;&#x9898;&#x8FD8;&#x96BE;&#x4E00;&#x4E9B;&#x3002;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+    install_dt,
+    <span class="hljs-keyword">COUNT</span>(player_id) installs,
+    <span class="hljs-keyword">ROUND</span>(<span class="hljs-keyword">COUNT</span>(<span class="hljs-keyword">retention</span>)/<span class="hljs-keyword">COUNT</span>(player_id),<span class="hljs-number">2</span>) Day1_retention  <span class="hljs-comment">--&#x6B21;&#x65E5;&#x6709;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x91CF;/&#x5F53;&#x65E5;&#x65B0;id&#x603B;&#x6570;=&#x7559;&#x5B58;&#x7387;</span>
+<span class="hljs-keyword">FROM</span>
+    (
+    <span class="hljs-keyword">SELECT</span> a.player_id, a.install_dt, b.event_date <span class="hljs-keyword">retention</span> <span class="hljs-comment">-- id, &#x9996;&#x6B21;&#x5B89;&#x88C5;&#x65E5;, &#x6B21;&#x65E5;&#x7684;&#x8BB0;&#x5F55;</span>
+    <span class="hljs-keyword">FROM</span>
+        (<span class="hljs-keyword">SELECT</span> player_id, <span class="hljs-keyword">MIN</span>(event_date) install_dt   <span class="hljs-comment">--subquery 1 &#x53D6;&#x6BCF;&#x4E2A;id&#x7684;&#x9996;&#x6B21;&#x5B89;&#x88C5;&#x65E5;</span>
+        <span class="hljs-keyword">FROM</span> Activity
+        <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> player_id) a <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Activity b <span class="hljs-keyword">ON</span>   <span class="hljs-comment">--sq1&#x5DE6;&#x8FDE;&#x539F;&#x8868;&#xFF0C;&#x6C42;&#x9996;&#x6B21;&#x5B89;&#x88C5;&#x540E;&#x6B21;&#x65E5;&#x7684;&#x767B;&#x9646;&#x60C5;&#x51B5;</span>
+            a.player_id = b.player_id <span class="hljs-keyword">AND</span> 
+            a.install_dt + <span class="hljs-number">1</span>=b.event_date
+    ) <span class="hljs-keyword">AS</span> tmp
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> 
+    install_dt
+</code></pre>
 
                                 
                                 </section>
@@ -1098,12 +1134,12 @@
 
             
                 
-                <a href="../algorithm/" class="navigation navigation-prev " aria-label="Previous page: Algorithms">
+                <a href="1084.SalesAnalysisIII.html" class="navigation navigation-prev " aria-label="Previous page: 1084.(Easy) Sales Analysis III">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="175.-zu-he-liang-ge-biao-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 175.(Easy) 组合两个表">
+                <a href="../jianzhi-offer/" class="navigation navigation-next " aria-label="Next page: 剑指offer">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1114,7 +1150,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Database","level":"1.3","depth":1,"next":{"title":"175.(Easy) 组合两个表","level":"1.3.1","depth":2,"path":"sql/175.-zu-he-liang-ge-biao-jian-dan.md","ref":"sql/175.-zu-he-liang-ge-biao-jian-dan.md","articles":[]},"previous":{"title":"Algorithms","level":"1.2","depth":1,"path":"algorithm/README.md","ref":"algorithm/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/README.md","mtime":"2019-07-31T15:50:57.087Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T00:11:51.801Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1097.(Hard) Game Play Analysis V","level":"1.3.58","depth":2,"next":{"title":"剑指offer","level":"1.4","depth":1,"path":"jianzhi-offer/README.md","ref":"jianzhi-offer/README.md","articles":[{"title":"连续子数组的最大和","level":"1.4.1","depth":2,"path":"jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md","ref":"jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md","articles":[]},{"title":"构建乘积数组","level":"1.4.2","depth":2,"path":"jianzhi-offer/gou-jian-cheng-ji-shu-zu.md","ref":"jianzhi-offer/gou-jian-cheng-ji-shu-zu.md","articles":[]},{"title":"跳台阶n","level":"1.4.3","depth":2,"path":"jianzhi-offer/tiao-tai-jie.md","ref":"jianzhi-offer/tiao-tai-jie.md","articles":[]},{"title":"跳台阶2","level":"1.4.4","depth":2,"path":"jianzhi-offer/tiao-tai-jie2.md","ref":"jianzhi-offer/tiao-tai-jie2.md","articles":[]},{"title":"求1至n的和","level":"1.4.5","depth":2,"path":"jianzhi-offer/sum-of-1-to-n.md","ref":"jianzhi-offer/sum-of-1-to-n.md","articles":[]},{"title":"2x1矩形覆盖","level":"1.4.6","depth":2,"path":"jianzhi-offer/ju-xing-fu-gai.md","ref":"jianzhi-offer/ju-xing-fu-gai.md","articles":[]},{"title":"二进制数中1的个数","level":"1.4.7","depth":2,"path":"jianzhi-offer/binary1counts.md","ref":"jianzhi-offer/binary1counts.md","articles":[]},{"title":"十进制数中1的个数","level":"1.4.8","depth":2,"path":"jianzhi-offer/decimal1counts.md","ref":"jianzhi-offer/decimal1counts.md","articles":[]}]},"previous":{"title":"1084.(Easy) Sales Analysis III","level":"1.3.57","depth":2,"path":"sql/1084.SalesAnalysisIII.md","ref":"sql/1084.SalesAnalysisIII.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"mathjax":{"forceSVG":false,"version":"2.7.1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1097.GamePlayAnalysisV.md","mtime":"2019-08-01T00:10:49.714Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-01T00:11:51.801Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
