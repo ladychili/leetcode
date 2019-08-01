@@ -60,6 +60,7 @@
   * [1082.\(Easy\) Sales Analysis I](sql/1082.SalesAnalysisI.md)
   * [1083.\(Easy\) Sales Analysis II](sql/1083.SalesAnalysisII.md)
   * [1084.\(Easy\) Sales Analysis III](sql/1084.SalesAnalysisIII.md)
+  * [1097.\(Hard\) Game Play Analysis V](sql/1097.GamePlayAnalysisV.md)
 * [剑指offer](jianzhi-offer/README.md)
     * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
     * [构建乘积数组](jianzhi-offer/gou-jian-cheng-ji-shu-zu.md)
