@@ -70,3 +70,4 @@
     * [2x1矩形覆盖](jianzhi-offer/ju-xing-fu-gai.md)
     * [二进制数中1的个数](jianzhi-offer/binary1counts.md)
     * [十进制数中1的个数](jianzhi-offer/decimal1counts.md)
+    * [二分查找](jianzhi-offer/binarysearch.md)

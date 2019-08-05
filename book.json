@@ -29,10 +29,14 @@
         "pageNumbers": false,
         "paperSize": "a4"
     },
-    "plugins": ["disqus", "mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn"],
+    "plugins": ["disqus", "mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn", "code-optimize"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "ladychili"
+        },
+        "code-optimize": {
+            "copyButtons": true,
+            "showLines": true
         }
     },
     "title": "My Leetcode Log",
