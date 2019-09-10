@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>180.(Medium) 连续出现的数字 · My Leetcode Log</title>
+        <title>1107.(Medium) New Users Daily Count · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" />
+    <link rel="next" href="1112.HighestGradeForEachStudent.html" />
     
     
-    <link rel="prev" href="178.-fen-shu-pai-ming.html" />
+    <link rel="prev" href="1098.unpopularbooks.html" />
     
 
     </head>
@@ -198,7 +198,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.5" data-path="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
+        <li class="chapter " data-level="1.3.5" data-path="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
             
                 <a href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
             
@@ -913,7 +913,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.60" data-path="1107.NewUsersDailyCount.html">
+        <li class="chapter active" data-level="1.3.60" data-path="1107.NewUsersDailyCount.html">
             
                 <a href="1107.NewUsersDailyCount.html">
             
@@ -1110,7 +1110,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >180.(Medium) 连续出现的数字</a>
+        <a href=".." >1107.(Medium) New Users Daily Count</a>
     </h1>
 </div>
 
@@ -1125,37 +1125,51 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="180medium-&#x8FDE;&#x7EED;&#x51FA;&#x73B0;&#x7684;&#x6570;&#x5B57;">180.(Medium) &#x8FDE;&#x7EED;&#x51FA;&#x73B0;&#x7684;&#x6570;&#x5B57;</h1>
-<pre><code class="lang-text">Logs
-+----+-----+
-| Id | Num |
-+----+-----+
-| 1  |  1  |
-| 2  |  1  |
-| 3  |  1  |
-| 4  |  2  |
-| 5  |  1  |
-| 6  |  2  |
-| 7  |  2  |
-+----+-----+
+                                <h1 id="1107medium-new-users-daily-count">1107.(Medium) New Users Daily Count</h1>
+<p>Write an SQL query that reports for every date within at most 90 days from today, the number of users that logged in for the first time on that date. Assume today is 2019-06-30.</p>
+<p>&#x6700;&#x8FD1;90&#x5929;&#x5185;&#x6BCF;&#x5929;&#x300C;&#x65B0;&#x7528;&#x6237;&#x300D;&#x767B;&#x5F55;&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+<pre><code>Traffic table:
++---------+----------+---------------+
+| user_id | activity | activity_date |
++---------+----------+---------------+
+| 1       | login    | 2019-05-01    |
+| 1       | homepage | 2019-05-01    |
+| 1       | logout   | 2019-05-01    |
+| 2       | login    | 2019-06-21    |
+| 2       | logout   | 2019-06-21    |
+| 3       | login    | 2019-01-01    |
+| 3       | jobs     | 2019-01-01    |
+| 3       | logout   | 2019-01-01    |
+| 4       | login    | 2019-06-21    |
+| 4       | groups   | 2019-06-21    |
+| 4       | logout   | 2019-06-21    |
+| 5       | login    | 2019-03-01    |
+| 5       | logout   | 2019-03-01    |
+| 5       | login    | 2019-06-21    |
+| 5       | logout   | 2019-06-21    |
++---------+----------+---------------+
 
-Output
-+-----------------+
-| ConsecutiveNums |
-+-----------------+
-| 1               |
-+-----------------+
-</code></pre>
-<p><strong>&#x8FDE;&#x7EED;</strong>&#x51FA;&#x73B0;3&#x6B21;&#x7684;&#x6570;&#x5B57;&#x3002;</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    <span class="hljs-keyword">DISTINCT</span> a.<span class="hljs-keyword">Num</span> <span class="hljs-keyword">AS</span> ConsecutiveNums
+Result table:
++------------+-------------+
+| login_date | user_count  |
++------------+-------------+
+| 2019-05-01 | 1           |
+| 2019-06-21 | 2           |
++------------+-------------+
+</code></pre><p>&#x548C;&#x4E0A;&#x4E2A;&#x6708;&#x62FC;&#x591A;&#x591A;&#x7B14;&#x8BD5;&#x7684;&#x4E00;&#x9053;&#x5F88;&#x50CF;&#x3002;</p>
+<p>&#x4E3B;&#x8981;&#x601D;&#x8DEF;&#x662F; </p>
+<ol>
+<li>&#x5148;<code>group by</code> user_id &#x627E;&#x5230;&#x6BCF;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x9996;&#x6B21;&#x767B;&#x5F55;&#x65E5;&#x671F;(login_date)</li>
+<li>&#x518D;<code>group by</code> login_date &#x7EDF;&#x8BA1;&#x6BCF;&#x65E5;&#x65B0;&#x7528;&#x6237;&#x6570;&#x91CF;&#xFF0C;&#x540C;&#x65F6;<code>WHERE</code> &#x9650;&#x5B9A;&#x65E5;&#x671F;</li>
+</ol>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> login_date, <span class="hljs-keyword">COUNT</span>(user_id) user_count
 <span class="hljs-keyword">FROM</span> 
-    <span class="hljs-keyword">Logs</span> a, <span class="hljs-keyword">Logs</span> b, <span class="hljs-keyword">Logs</span> c
-<span class="hljs-keyword">WHERE</span>
-    a.<span class="hljs-keyword">Id</span> = b.<span class="hljs-keyword">Id</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">AND</span>
-    a.<span class="hljs-keyword">Id</span> = c.<span class="hljs-keyword">Id</span> + <span class="hljs-number">2</span> <span class="hljs-keyword">AND</span>
-    a.<span class="hljs-keyword">Num</span> = b.<span class="hljs-keyword">Num</span> <span class="hljs-keyword">AND</span>
-    a.<span class="hljs-keyword">Num</span> = c.<span class="hljs-keyword">Num</span>
+    (<span class="hljs-keyword">SELECT</span> user_id, <span class="hljs-keyword">MIN</span>(activity_date) <span class="hljs-keyword">as</span> login_date
+    <span class="hljs-keyword">FROM</span> Traffic
+    <span class="hljs-keyword">WHERE</span> activity=<span class="hljs-string">&apos;login&apos;</span>
+    <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> user_id) <span class="hljs-keyword">as</span> t
+<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">DATEDIFF</span>(<span class="hljs-string">&apos;2019-06-30&apos;</span>, login_date) &lt;= <span class="hljs-number">90</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> login_date
 </code></pre>
 
                                 
@@ -1184,12 +1198,12 @@ Output
 
             
                 
-                <a href="178.-fen-shu-pai-ming.html" class="navigation navigation-prev " aria-label="Previous page: 178.(Medium) 分数排名">
+                <a href="1098.unpopularbooks.html" class="navigation navigation-prev " aria-label="Previous page: 1098.(Medium) Unpopular Books">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 181.(Easy) 超过经理收入的员工">
+                <a href="1112.HighestGradeForEachStudent.html" class="navigation navigation-next " aria-label="Next page: 1112.(Medium) Highest Grade For Each Student">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1200,7 +1214,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"180.(Medium) 连续出现的数字","level":"1.3.5","depth":2,"next":{"title":"181.(Easy) 超过经理收入的员工","level":"1.3.6","depth":2,"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","ref":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","articles":[]},"previous":{"title":"178.(Medium) 分数排名","level":"1.3.4","depth":2,"path":"sql/178.-fen-shu-pai-ming.md","ref":"sql/178.-fen-shu-pai-ming.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","mtime":"2019-09-10T05:03:04.641Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T07:32:43.221Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1107.(Medium) New Users Daily Count","level":"1.3.60","depth":2,"next":{"title":"1112.(Medium) Highest Grade For Each Student","level":"1.3.61","depth":2,"path":"sql/1112.HighestGradeForEachStudent.md","ref":"sql/1112.HighestGradeForEachStudent.md","articles":[]},"previous":{"title":"1098.(Medium) Unpopular Books","level":"1.3.59","depth":2,"path":"sql/1098.unpopularbooks.md","ref":"sql/1098.unpopularbooks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1107.NewUsersDailyCount.md","mtime":"2019-09-10T07:29:15.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T07:32:43.221Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

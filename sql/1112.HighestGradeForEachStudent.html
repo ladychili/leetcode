@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>180.(Medium) 连续出现的数字 · My Leetcode Log</title>
+        <title>1112.(Medium) Highest Grade For Each Student · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" />
+    <link rel="next" href="../jianzhi-offer/" />
     
     
-    <link rel="prev" href="178.-fen-shu-pai-ming.html" />
+    <link rel="prev" href="1107.NewUsersDailyCount.html" />
     
 
     </head>
@@ -198,7 +198,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.5" data-path="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
+        <li class="chapter " data-level="1.3.5" data-path="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
             
                 <a href="180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.html">
             
@@ -926,7 +926,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.61" data-path="1112.HighestGradeForEachStudent.html">
+        <li class="chapter active" data-level="1.3.61" data-path="1112.HighestGradeForEachStudent.html">
             
                 <a href="1112.HighestGradeForEachStudent.html">
             
@@ -1110,7 +1110,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >180.(Medium) 连续出现的数字</a>
+        <a href=".." >1112.(Medium) Highest Grade For Each Student</a>
     </h1>
 </div>
 
@@ -1125,37 +1125,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="180medium-&#x8FDE;&#x7EED;&#x51FA;&#x73B0;&#x7684;&#x6570;&#x5B57;">180.(Medium) &#x8FDE;&#x7EED;&#x51FA;&#x73B0;&#x7684;&#x6570;&#x5B57;</h1>
-<pre><code class="lang-text">Logs
-+----+-----+
-| Id | Num |
-+----+-----+
-| 1  |  1  |
-| 2  |  1  |
-| 3  |  1  |
-| 4  |  2  |
-| 5  |  1  |
-| 6  |  2  |
-| 7  |  2  |
-+----+-----+
+                                <h1 id="1112-medium-highest-grade-for-each-student">1112. (Medium) Highest Grade For Each Student</h1>
+<ol>
+<li>Get highest grade for each student</li>
+<li>In case of a tie, choose the course with smaller <code>course_id</code></li>
+<li>sorted by increasing <code>student_id</code></li>
+</ol>
+<pre><code>+------------+-------------------+
+| student_id | course_id | grade |
++------------+-----------+-------+
+| 2          | 2         | 95    |
+| 2          | 3         | 95    |
+| 1          | 1         | 90    |
+| 1          | 2         | 99    |
+| 3          | 1         | 80    |
+| 3          | 2         | 75    |
+| 3          | 3         | 82    |
++------------+-----------+-------+
 
-Output
-+-----------------+
-| ConsecutiveNums |
-+-----------------+
-| 1               |
-+-----------------+
-</code></pre>
-<p><strong>&#x8FDE;&#x7EED;</strong>&#x51FA;&#x73B0;3&#x6B21;&#x7684;&#x6570;&#x5B57;&#x3002;</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> 
-    <span class="hljs-keyword">DISTINCT</span> a.<span class="hljs-keyword">Num</span> <span class="hljs-keyword">AS</span> ConsecutiveNums
-<span class="hljs-keyword">FROM</span> 
-    <span class="hljs-keyword">Logs</span> a, <span class="hljs-keyword">Logs</span> b, <span class="hljs-keyword">Logs</span> c
-<span class="hljs-keyword">WHERE</span>
-    a.<span class="hljs-keyword">Id</span> = b.<span class="hljs-keyword">Id</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">AND</span>
-    a.<span class="hljs-keyword">Id</span> = c.<span class="hljs-keyword">Id</span> + <span class="hljs-number">2</span> <span class="hljs-keyword">AND</span>
-    a.<span class="hljs-keyword">Num</span> = b.<span class="hljs-keyword">Num</span> <span class="hljs-keyword">AND</span>
-    a.<span class="hljs-keyword">Num</span> = c.<span class="hljs-keyword">Num</span>
+Result table:
++------------+-------------------+
+| student_id | course_id | grade |
++------------+-----------+-------+
+| 1          | 2         | 99    |
+| 2          | 2         | 95    |
+| 3          | 3         | 82    |
++------------+-----------+-------+
+</code></pre><pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> student_id, <span class="hljs-keyword">MIN</span>(course_id) course_id, grade
+<span class="hljs-keyword">FROM</span> Enrollments
+<span class="hljs-keyword">WHERE</span> (student_id, grade) <span class="hljs-keyword">IN</span> 
+        (<span class="hljs-keyword">SELECT</span> student_id, <span class="hljs-keyword">MAX</span>(grade) 
+        <span class="hljs-keyword">FROM</span> Enrollments
+        <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> student_id)
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> student_id
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> student_id
 </code></pre>
 
                                 
@@ -1184,12 +1187,12 @@ Output
 
             
                 
-                <a href="178.-fen-shu-pai-ming.html" class="navigation navigation-prev " aria-label="Previous page: 178.(Medium) 分数排名">
+                <a href="1107.NewUsersDailyCount.html" class="navigation navigation-prev " aria-label="Previous page: 1107.(Medium) New Users Daily Count">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.html" class="navigation navigation-next " aria-label="Next page: 181.(Easy) 超过经理收入的员工">
+                <a href="../jianzhi-offer/" class="navigation navigation-next " aria-label="Next page: 剑指offer">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1200,7 +1203,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"180.(Medium) 连续出现的数字","level":"1.3.5","depth":2,"next":{"title":"181.(Easy) 超过经理收入的员工","level":"1.3.6","depth":2,"path":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","ref":"sql/181.-chao-guo-jing-li-shou-ru-de-yuan-gong-jian-dan.md","articles":[]},"previous":{"title":"178.(Medium) 分数排名","level":"1.3.4","depth":2,"path":"sql/178.-fen-shu-pai-ming.md","ref":"sql/178.-fen-shu-pai-ming.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/180.-lian-xu-chu-xian-de-shu-zi-zhong-deng.md","mtime":"2019-09-10T05:03:04.641Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T07:32:43.221Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1112.(Medium) Highest Grade For Each Student","level":"1.3.61","depth":2,"next":{"title":"剑指offer","level":"1.4","depth":1,"path":"jianzhi-offer/README.md","ref":"jianzhi-offer/README.md","articles":[{"title":"连续子数组的最大和","level":"1.4.1","depth":2,"path":"jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md","ref":"jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md","articles":[]},{"title":"构建乘积数组","level":"1.4.2","depth":2,"path":"jianzhi-offer/gou-jian-cheng-ji-shu-zu.md","ref":"jianzhi-offer/gou-jian-cheng-ji-shu-zu.md","articles":[]},{"title":"跳台阶n","level":"1.4.3","depth":2,"path":"jianzhi-offer/tiao-tai-jie.md","ref":"jianzhi-offer/tiao-tai-jie.md","articles":[]},{"title":"跳台阶2","level":"1.4.4","depth":2,"path":"jianzhi-offer/tiao-tai-jie2.md","ref":"jianzhi-offer/tiao-tai-jie2.md","articles":[]},{"title":"求1至n的和","level":"1.4.5","depth":2,"path":"jianzhi-offer/sum-of-1-to-n.md","ref":"jianzhi-offer/sum-of-1-to-n.md","articles":[]},{"title":"2x1矩形覆盖","level":"1.4.6","depth":2,"path":"jianzhi-offer/ju-xing-fu-gai.md","ref":"jianzhi-offer/ju-xing-fu-gai.md","articles":[]},{"title":"二进制数中1的个数","level":"1.4.7","depth":2,"path":"jianzhi-offer/binary1counts.md","ref":"jianzhi-offer/binary1counts.md","articles":[]},{"title":"十进制数中1的个数","level":"1.4.8","depth":2,"path":"jianzhi-offer/decimal1counts.md","ref":"jianzhi-offer/decimal1counts.md","articles":[]},{"title":"二分查找","level":"1.4.9","depth":2,"path":"jianzhi-offer/binarysearch.md","ref":"jianzhi-offer/binarysearch.md","articles":[]}]},"previous":{"title":"1107.(Medium) New Users Daily Count","level":"1.3.60","depth":2,"path":"sql/1107.NewUsersDailyCount.md","ref":"sql/1107.NewUsersDailyCount.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1112.HighestGradeForEachStudent.md","mtime":"2019-09-10T05:21:02.073Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-10T07:32:43.221Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
