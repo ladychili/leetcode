@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>607.(Easy) Sales Person · My Leetcode Log</title>
+        <title>1113.(Easy) Reported Posts · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="608.-Tree-Node.html" />
+    <link rel="next" href="1126.ActiveBusinesses.html" />
     
     
-    <link rel="prev" href="603.-easy-consecutive-available-seats.html" />
+    <link rel="prev" href="1112.HighestGradeForEachStudent.html" />
     
 
     </head>
@@ -588,7 +588,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.35" data-path="607.-easy-sales-person.html">
+        <li class="chapter " data-level="1.3.35" data-path="607.-easy-sales-person.html">
             
                 <a href="607.-easy-sales-person.html">
             
@@ -939,7 +939,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.62" data-path="1113.ReportedPosts.html">
+        <li class="chapter active" data-level="1.3.62" data-path="1113.ReportedPosts.html">
             
                 <a href="1113.ReportedPosts.html">
             
@@ -1136,7 +1136,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >607.(Easy) Sales Person</a>
+        <a href=".." >1113.(Easy) Reported Posts</a>
     </h1>
 </div>
 
@@ -1151,53 +1151,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="607easy-sales-person">607.(Easy) Sales Person</h1>
-<pre><code class="lang-text">salesperson
-+----------+------+--------+-----------------+-----------+
-| sales_id | name | salary | commission_rate | hire_date |
-+----------+------+--------+-----------------+-----------+
-|   1      | John | 100000 |     6           | 4/1/2006  |
-|   2      | Amy  | 120000 |     5           | 5/1/2010  |
-|   3      | Mark | 65000  |     12          | 12/25/2008|
-|   4      | Pam  | 25000  |     25          | 1/1/2005  |
-|   5      | Alex | 50000  |     10          | 2/3/2007  |
-+----------+------+--------+-----------------+-----------+
-company
-+---------+--------+------------+
-| com_id  |  name  |    city    |
-+---------+--------+------------+
-|   1     |  RED   |   Boston   |
-|   2     | ORANGE |   New York |
-|   3     | YELLOW |   Boston   |
-|   4     | GREEN  |   Austin   |
-+---------+--------+------------+
-orders
-+----------+------------+---------+----------+--------+
-| order_id | order_date | com_id  | sales_id | amount |
-+----------+------------+---------+----------+--------+
-| 1        |   1/1/2014 |    3    |    4     | 100000 |
-| 2        |   2/1/2014 |    4    |    5     | 5000   |
-| 3        |   3/1/2014 |    1    |    1     | 50000  |
-| 4        |   4/1/2014 |    1    |    4     | 25000  |
-+----------+------------+---------+----------+--------+
+                                <p>1113.(Easy) Reported Posts</p>
+<p>&#x63D0;&#x53D6;&#x6628;&#x5929;&#xFF08;&#x5047;&#x8BBE;&#x4ECA;&#x5929;&#x662F;2019-07-05&#xFF09;&#x7684;reports&#xFF0C;&#x5305;&#x62EC;reasons&#x548C;counts</p>
+<pre><code>Actions table:
++---------+---------+-------------+--------+--------+
+| user_id | post_id | action_date | action | extra  |
++---------+---------+-------------+--------+--------+
+| 1       | 1       | 2019-07-01  | view   | null   |
+| 1       | 1       | 2019-07-01  | like   | null   |
+| 1       | 1       | 2019-07-01  | share  | null   |
+| 2       | 4       | 2019-07-04  | view   | null   |
+| 2       | 4       | 2019-07-04  | report | spam   |
+| 3       | 4       | 2019-07-04  | view   | null   |
+| 3       | 4       | 2019-07-04  | report | spam   |
+| 4       | 3       | 2019-07-02  | view   | null   |
+| 4       | 3       | 2019-07-02  | report | spam   |
+| 5       | 2       | 2019-07-04  | view   | null   |
+| 5       | 2       | 2019-07-04  | report | racism |
+| 5       | 5       | 2019-07-04  | view   | null   |
+| 5       | 5       | 2019-07-04  | report | racism |
++---------+---------+-------------+--------+--------+
 
-Output
-+------+
-| name | 
-+------+
-| Amy  | 
-| Mark | 
-| Alex |
-+------+
-</code></pre>
-<p>Output the name of those who didn&apos;t have sales to the company &quot;RED&quot;</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>
-<span class="hljs-keyword">FROM</span> salesperson
-<span class="hljs-keyword">WHERE</span> sales_id <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> o.sales_id  <span class="hljs-comment">--those who have sales to &quot;RED&quot;</span>
-                       <span class="hljs-keyword">FROM</span> orders o <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> company c <span class="hljs-keyword">ON</span>
-                            o.com_id = c.com_id
-                       <span class="hljs-keyword">WHERE</span> c.<span class="hljs-keyword">name</span> = <span class="hljs-string">&apos;RED&apos;</span>
-                       <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> o.sales_id)
+Result table:
++---------------+--------------+
+| report_reason | report_count |
++---------------+--------------+
+| spam          | 1            |
+| racism        | 2            |
++---------------+--------------+
+</code></pre><pre><code class="lang-sql">
+<span class="hljs-keyword">SELECT</span> extra report_reason, <span class="hljs-keyword">COUNT</span>(<span class="hljs-keyword">DISTINCT</span> post_id) report_count
+<span class="hljs-keyword">FROM</span> 
+    (<span class="hljs-keyword">SELECT</span> post_id, extra
+    <span class="hljs-keyword">FROM</span> Actions 
+    <span class="hljs-keyword">WHERE</span> action_date = <span class="hljs-keyword">DATE_SUB</span>(<span class="hljs-string">&apos;2019-07-05&apos;</span>, <span class="hljs-built_in">INTERVAL</span> <span class="hljs-number">1</span> <span class="hljs-keyword">DAY</span>) <span class="hljs-keyword">AND</span>
+          <span class="hljs-keyword">action</span> = <span class="hljs-string">&apos;report&apos;</span>) <span class="hljs-keyword">AS</span> tmp
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> extra
 </code></pre>
 
                                 
@@ -1226,12 +1215,12 @@ Output
 
             
                 
-                <a href="603.-easy-consecutive-available-seats.html" class="navigation navigation-prev " aria-label="Previous page: 603.(Easy) Consecutive Available Seats">
+                <a href="1112.HighestGradeForEachStudent.html" class="navigation navigation-prev " aria-label="Previous page: 1112.(Medium) Highest Grade For Each Student">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="608.-Tree-Node.html" class="navigation navigation-next " aria-label="Next page: 608.(Medium) Tree Node">
+                <a href="1126.ActiveBusinesses.html" class="navigation navigation-next " aria-label="Next page: 1126.(Medium) Active Businesses">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1242,7 +1231,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"607.(Easy) Sales Person","level":"1.3.35","depth":2,"next":{"title":"608.(Medium) Tree Node","level":"1.3.36","depth":2,"path":"sql/608.-Tree-Node.md","ref":"sql/608.-Tree-Node.md","articles":[]},"previous":{"title":"603.(Easy) Consecutive Available Seats","level":"1.3.34","depth":2,"path":"sql/603.-easy-consecutive-available-seats.md","ref":"sql/603.-easy-consecutive-available-seats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/607.-easy-sales-person.md","mtime":"2019-09-15T09:06:52.104Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T12:05:19.231Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1113.(Easy) Reported Posts","level":"1.3.62","depth":2,"next":{"title":"1126.(Medium) Active Businesses","level":"1.3.63","depth":2,"path":"sql/1126.ActiveBusinesses.md","ref":"sql/1126.ActiveBusinesses.md","articles":[]},"previous":{"title":"1112.(Medium) Highest Grade For Each Student","level":"1.3.61","depth":2,"path":"sql/1112.HighestGradeForEachStudent.md","ref":"sql/1112.HighestGradeForEachStudent.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1113.ReportedPosts.md","mtime":"2019-09-21T11:21:21.273Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T12:05:19.231Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

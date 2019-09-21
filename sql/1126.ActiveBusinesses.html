@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>607.(Easy) Sales Person · My Leetcode Log</title>
+        <title>1126.(Medium) Active Businesses · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="608.-Tree-Node.html" />
+    <link rel="next" href="../jianzhi-offer/" />
     
     
-    <link rel="prev" href="603.-easy-consecutive-available-seats.html" />
+    <link rel="prev" href="1113.ReportedPosts.html" />
     
 
     </head>
@@ -588,7 +588,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.35" data-path="607.-easy-sales-person.html">
+        <li class="chapter " data-level="1.3.35" data-path="607.-easy-sales-person.html">
             
                 <a href="607.-easy-sales-person.html">
             
@@ -952,7 +952,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.63" data-path="1126.ActiveBusinesses.html">
+        <li class="chapter active" data-level="1.3.63" data-path="1126.ActiveBusinesses.html">
             
                 <a href="1126.ActiveBusinesses.html">
             
@@ -1136,7 +1136,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >607.(Easy) Sales Person</a>
+        <a href=".." >1126.(Medium) Active Businesses</a>
     </h1>
 </div>
 
@@ -1151,54 +1151,50 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="607easy-sales-person">607.(Easy) Sales Person</h1>
-<pre><code class="lang-text">salesperson
-+----------+------+--------+-----------------+-----------+
-| sales_id | name | salary | commission_rate | hire_date |
-+----------+------+--------+-----------------+-----------+
-|   1      | John | 100000 |     6           | 4/1/2006  |
-|   2      | Amy  | 120000 |     5           | 5/1/2010  |
-|   3      | Mark | 65000  |     12          | 12/25/2008|
-|   4      | Pam  | 25000  |     25          | 1/1/2005  |
-|   5      | Alex | 50000  |     10          | 2/3/2007  |
-+----------+------+--------+-----------------+-----------+
-company
-+---------+--------+------------+
-| com_id  |  name  |    city    |
-+---------+--------+------------+
-|   1     |  RED   |   Boston   |
-|   2     | ORANGE |   New York |
-|   3     | YELLOW |   Boston   |
-|   4     | GREEN  |   Austin   |
-+---------+--------+------------+
-orders
-+----------+------------+---------+----------+--------+
-| order_id | order_date | com_id  | sales_id | amount |
-+----------+------------+---------+----------+--------+
-| 1        |   1/1/2014 |    3    |    4     | 100000 |
-| 2        |   2/1/2014 |    4    |    5     | 5000   |
-| 3        |   3/1/2014 |    1    |    1     | 50000  |
-| 4        |   4/1/2014 |    1    |    4     | 25000  |
-+----------+------------+---------+----------+--------+
+                                <h1 id="1126-medium-active-businesses">1126. (Medium) Active Businesses</h1>
+<p>&#x627E;&#x51FA;&#x6D3B;&#x8DC3;&#x4E1A;&#x52A1;&#x3002;
+&#x6D3B;&#x8DC3;&#x4E1A;&#x52A1;&#x7684;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;&#x5927;&#x4E8E;&#x4E00;&#x4E2A;&#x300C;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x300D;&#xFF0C;&#x5176;&#x300C;&#x9891;&#x6B21;&#x300D;&#x5927;&#x4E8E;&#x8BE5;&#x7C7B;&#x578B;&#x7684;&#x300C;&#x5E73;&#x5747;&#x9891;&#x6B21;&#x300D;&#x3002;
+(Business that has more than one event type with occurences greater than the average occurences of that event type among all businesses.)</p>
+<pre><code>Events table:
++-------------+------------+------------+
+| business_id | event_type | occurences |
++-------------+------------+------------+
+| 1           | reviews    | 7          |
+| 3           | reviews    | 3          |
+| 1           | ads        | 11         |
+| 2           | ads        | 7          |
+| 3           | ads        | 6          |
+| 1           | page views | 3          |
+| 2           | page views | 12         |
++-------------+------------+------------+
 
-Output
-+------+
-| name | 
-+------+
-| Amy  | 
-| Mark | 
-| Alex |
-+------+
+Result table:
++-------------+
+| business_id |
++-------------+
+| 1           |
++-------------+
+</code></pre><pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> business_id
+<span class="hljs-keyword">FROM</span> (<span class="hljs-keyword">SELECT</span> a.business_id, a.event_type, a.occurences, b.event_avg  <span class="hljs-comment">-- sub 2</span>
+      <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Events</span> a <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
+        (<span class="hljs-keyword">SELECT</span> event_type, <span class="hljs-keyword">AVG</span>(occurences) event_avg   <span class="hljs-comment">-- sub 1</span>
+         <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">Events</span>
+         <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> event_type) b <span class="hljs-keyword">ON</span>
+      a.event_type = b.event_type) tmp
+<span class="hljs-keyword">WHERE</span> occurences &gt; event_avg
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> business_id
+<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(event_type) &gt; <span class="hljs-number">1</span>
 </code></pre>
-<p>Output the name of those who didn&apos;t have sales to the company &quot;RED&quot;</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>
-<span class="hljs-keyword">FROM</span> salesperson
-<span class="hljs-keyword">WHERE</span> sales_id <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> o.sales_id  <span class="hljs-comment">--those who have sales to &quot;RED&quot;</span>
-                       <span class="hljs-keyword">FROM</span> orders o <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> company c <span class="hljs-keyword">ON</span>
-                            o.com_id = c.com_id
-                       <span class="hljs-keyword">WHERE</span> c.<span class="hljs-keyword">name</span> = <span class="hljs-string">&apos;RED&apos;</span>
-                       <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> o.sales_id)
-</code></pre>
+<p>&#x601D;&#x8DEF;&#xFF1A;</p>
+<ol>
+<li>subquery1 &#x53D6;&#x51FA;&#x5404; <em>event_type</em> &#x7684;&#x5E73;&#x5747; <em>occurences</em>&#xFF0C;&#x548C;&#x539F;&#x8868;join&#x5F97;&#x5230;subquery2&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x539F;&#x8868;&#x591A;&#x4E86;&#x4E00;&#x5217;AVG&#xFF09;</li>
+<li>&#x4ECE;subquery2&#x91CC;&#x53D6;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#xFF1A;<ol>
+<li><code>WHERE</code> &#x7B5B;&#x9009; <em>occurences</em> &#x5927;&#x4E8E;AVG&#x7684; <em>event_type</em>&#xFF0C;</li>
+<li><code>GROUPBY</code> &#x805A;&#x5408; business</li>
+<li><code>HAVING</code> &#x7B5B;&#x9009; <em>event_type</em>&#x6570;&#x5927;&#x4E8E;1&#x7684; business</li>
+</ol>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -1226,12 +1222,12 @@ Output
 
             
                 
-                <a href="603.-easy-consecutive-available-seats.html" class="navigation navigation-prev " aria-label="Previous page: 603.(Easy) Consecutive Available Seats">
+                <a href="1113.ReportedPosts.html" class="navigation navigation-prev " aria-label="Previous page: 1113.(Easy) Reported Posts">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="608.-Tree-Node.html" class="navigation navigation-next " aria-label="Next page: 608.(Medium) Tree Node">
+                <a href="../jianzhi-offer/" class="navigation navigation-next " aria-label="Next page: 剑指offer">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1242,7 +1238,7 @@ Output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"607.(Easy) Sales Person","level":"1.3.35","depth":2,"next":{"title":"608.(Medium) Tree Node","level":"1.3.36","depth":2,"path":"sql/608.-Tree-Node.md","ref":"sql/608.-Tree-Node.md","articles":[]},"previous":{"title":"603.(Easy) Consecutive Available Seats","level":"1.3.34","depth":2,"path":"sql/603.-easy-consecutive-available-seats.md","ref":"sql/603.-easy-consecutive-available-seats.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/607.-easy-sales-person.md","mtime":"2019-09-15T09:06:52.104Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T12:05:19.231Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1126.(Medium) Active Businesses","level":"1.3.63","depth":2,"next":{"title":"剑指offer","level":"1.4","depth":1,"path":"jianzhi-offer/README.md","ref":"jianzhi-offer/README.md","articles":[{"title":"连续子数组的最大和","level":"1.4.1","depth":2,"path":"jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md","ref":"jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md","articles":[]},{"title":"构建乘积数组","level":"1.4.2","depth":2,"path":"jianzhi-offer/gou-jian-cheng-ji-shu-zu.md","ref":"jianzhi-offer/gou-jian-cheng-ji-shu-zu.md","articles":[]},{"title":"跳台阶n","level":"1.4.3","depth":2,"path":"jianzhi-offer/tiao-tai-jie.md","ref":"jianzhi-offer/tiao-tai-jie.md","articles":[]},{"title":"跳台阶2","level":"1.4.4","depth":2,"path":"jianzhi-offer/tiao-tai-jie2.md","ref":"jianzhi-offer/tiao-tai-jie2.md","articles":[]},{"title":"求1至n的和","level":"1.4.5","depth":2,"path":"jianzhi-offer/sum-of-1-to-n.md","ref":"jianzhi-offer/sum-of-1-to-n.md","articles":[]},{"title":"2x1矩形覆盖","level":"1.4.6","depth":2,"path":"jianzhi-offer/ju-xing-fu-gai.md","ref":"jianzhi-offer/ju-xing-fu-gai.md","articles":[]},{"title":"二进制数中1的个数","level":"1.4.7","depth":2,"path":"jianzhi-offer/binary1counts.md","ref":"jianzhi-offer/binary1counts.md","articles":[]},{"title":"十进制数中1的个数","level":"1.4.8","depth":2,"path":"jianzhi-offer/decimal1counts.md","ref":"jianzhi-offer/decimal1counts.md","articles":[]},{"title":"二分查找","level":"1.4.9","depth":2,"path":"jianzhi-offer/binarysearch.md","ref":"jianzhi-offer/binarysearch.md","articles":[]}]},"previous":{"title":"1113.(Easy) Reported Posts","level":"1.3.62","depth":2,"path":"sql/1113.ReportedPosts.md","ref":"sql/1113.ReportedPosts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1126.ActiveBusinesses.md","mtime":"2019-09-21T12:04:14.434Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-21T12:05:19.231Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
