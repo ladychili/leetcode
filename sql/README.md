@@ -63,3 +63,5 @@
 * [1098.\(Medium\) Unpopular Books](1098.unpopularbooks.md)
 * [1107.\(Medium\) New Users Daily Count](1107.NewUsersDailyCount.md)
 * [1112.\(Medium\) Highest Grade For Each Student](1112.HighestGradeForEachStudent.md)
+* [1113.\(Easy\) Reported Posts](1113.ReportedPosts.md)
+* [1126.\(Medium\) Active Businesses](1126.ActiveBusinesses.md)
