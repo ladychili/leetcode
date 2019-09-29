@@ -66,6 +66,7 @@
   * [1112.\(Medium\) Highest Grade For Each Student](sql/1112.HighestGradeForEachStudent.md)
   * [1113.\(Easy\) Reported Posts](sql/1113.ReportedPosts.md)
   * [1126.\(Medium\) Active Businesses](sql/1126.ActiveBusinesses.md)
+  * [1127.\(Hard\) User Purchase Platform](sql/1127.UserPurchasePlatform.md)
 * [剑指offer](jianzhi-offer/README.md)
     * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
     * [构建乘积数组](jianzhi-offer/gou-jian-cheng-ji-shu-zu.md)

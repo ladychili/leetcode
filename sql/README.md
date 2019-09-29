@@ -65,3 +65,4 @@
 * [1112.\(Medium\) Highest Grade For Each Student](1112.HighestGradeForEachStudent.md)
 * [1113.\(Easy\) Reported Posts](1113.ReportedPosts.md)
 * [1126.\(Medium\) Active Businesses](1126.ActiveBusinesses.md)
+* [1127.\(Hard\) User Purchase Platform](1127.UserPurchasePlatform.md)
