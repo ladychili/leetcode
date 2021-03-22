@@ -24,7 +24,7 @@
   * [570.\(Medium\) 至少有5名直接下属的经理](sql/570.medium-zhi-shao-you-5-ming-zhi-jie-xia-shu-de-jing-li.md)
   * [571.\(Hard\) 给定数字的频率查询中位数](sql/571.hard-gei-ding-shu-zi-de-pin-lv-cha-xun-zhong-wei-shu.md)
   * [574.\(Medium\) Winning Candidate](sql/574.-medium-winning-candidate.md)
-  * [577.\(Easy\) Employee Bonus](sql/untitled.md)
+  * [577.\(Easy\) Employee Bonus](sql/577.EmployeeBonus.md)
   * [578.\(Medium\) Get Highest Answer Rate Question](sql/578.-medium-get-highest-answer-rate-question.md)
   * [579.\(Hard\) Find Cumulative Salary of an Employee](sql/579.-find-cumulative-salary-of-an-employee.md)
   * [580.\(Medium\) Count Student Number in Departments](sql/580.-medium-count-student-number-in-departments.md)
