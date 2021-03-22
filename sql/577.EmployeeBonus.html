@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>610.(Easy) Triangle Judgement · My Leetcode Log</title>
+        <title>577.(Easy) Employee Bonus · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="612.shortest-distance-in-plane.html" />
+    <link rel="next" href="578.-medium-get-highest-answer-rate-question.html" />
     
     
-    <link rel="prev" href="608.-Tree-Node.html" />
+    <link rel="prev" href="574.-medium-winning-candidate.html" />
     
 
     </head>
@@ -419,7 +419,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.22" data-path="577.EmployeeBonus.html">
+        <li class="chapter active" data-level="1.3.22" data-path="577.EmployeeBonus.html">
             
                 <a href="577.EmployeeBonus.html">
             
@@ -614,7 +614,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.37" data-path="610.-triangle-judgement.html">
+        <li class="chapter " data-level="1.3.37" data-path="610.-triangle-judgement.html">
             
                 <a href="610.-triangle-judgement.html">
             
@@ -1149,7 +1149,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >610.(Easy) Triangle Judgement</a>
+        <a href=".." >577.(Easy) Employee Bonus</a>
     </h1>
 </div>
 
@@ -1164,28 +1164,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="610easy-triangle-judgement">610.(Easy) Triangle Judgement</h1>
-<pre><code class="lang-text">triangle
-| x  | y  | z  |
-|----|----|----|
-| 13 | 15 | 30 |
-| 10 | 20 | 15 |
+                                <h1 id="577easy-employee-bonus">577.(Easy) Employee Bonus</h1>
+<pre><code class="lang-text">Employee
+
++-------+--------+-----------+--------+
+| empId |  name  | supervisor| salary |
++-------+--------+-----------+--------+
+|   1   | John   |  3        | 1000   |
+|   2   | Dan    |  3        | 2000   |
+|   3   | Brad   |  null     | 4000   |
+|   4   | Thomas |  3        | 4000   |
++-------+--------+-----------+--------+
+
+Bonus
+
++-------+-------+
+| empId | bonus |
++-------+-------+
+| 2     | 500   |
+| 4     | 2000  |
++-------+-------+
 
 output
-| x  | y  | z  | triangle |
-|----|----|----|----------|
-| 13 | 15 | 30 | No       |
-| 10 | 20 | 15 | Yes      |
++-------+-------+
+| name  | bonus |
++-------+-------+
+| John  | null  |
+| Dan   | 500   |
+| Brad  | null  |
++-------+-------+
 </code></pre>
-<p>&#x4E24;&#x8FB9;&#x4E4B;&#x548C;&#x5927;&#x4E8E;&#x7B2C;&#x4E09;&#x8FB9;</p>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
-    *
-    , (<span class="hljs-keyword">CASE</span> 
-       <span class="hljs-keyword">WHEN</span> (x&lt;y+z <span class="hljs-keyword">AND</span> y&lt;x+z <span class="hljs-keyword">AND</span> z&lt;x+y) <span class="hljs-keyword">THEN</span> <span class="hljs-string">&apos;Yes&apos;</span>
-       <span class="hljs-keyword">ELSE</span> <span class="hljs-string">&apos;No&apos;</span>
-       <span class="hljs-keyword">END</span>) triangle
+    e.<span class="hljs-keyword">name</span>,
+    b.bonus
 <span class="hljs-keyword">FROM</span>
-    triangle
+    Employee e <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> Bonus b <span class="hljs-keyword">ON</span>
+    e.empid = b.empid
+<span class="hljs-keyword">WHERE</span>
+    b.bonus &lt; <span class="hljs-number">1000</span> <span class="hljs-keyword">OR</span> 
+    b.bonus <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>
 </code></pre>
 
                                 
@@ -1214,12 +1231,12 @@ output
 
             
                 
-                <a href="608.-Tree-Node.html" class="navigation navigation-prev " aria-label="Previous page: 608.(Medium) Tree Node">
+                <a href="574.-medium-winning-candidate.html" class="navigation navigation-prev " aria-label="Previous page: 574.(Medium) Winning Candidate">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="612.shortest-distance-in-plane.html" class="navigation navigation-next " aria-label="Next page: 612.(Medium) Shortest Distance in Plane">
+                <a href="578.-medium-get-highest-answer-rate-question.html" class="navigation navigation-next " aria-label="Next page: 578.(Medium) Get Highest Answer Rate Question">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1230,7 +1247,7 @@ output
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"610.(Easy) Triangle Judgement","level":"1.3.37","depth":2,"next":{"title":"612.(Medium) Shortest Distance in Plane","level":"1.3.38","depth":2,"path":"sql/612.shortest-distance-in-plane.md","ref":"sql/612.shortest-distance-in-plane.md","articles":[]},"previous":{"title":"608.(Medium) Tree Node","level":"1.3.36","depth":2,"path":"sql/608.-Tree-Node.md","ref":"sql/608.-Tree-Node.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/610.-triangle-judgement.md","mtime":"2021-03-22T09:37:06.309Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-22T09:37:09.939Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"577.(Easy) Employee Bonus","level":"1.3.22","depth":2,"next":{"title":"578.(Medium) Get Highest Answer Rate Question","level":"1.3.23","depth":2,"path":"sql/578.-medium-get-highest-answer-rate-question.md","ref":"sql/578.-medium-get-highest-answer-rate-question.md","articles":[]},"previous":{"title":"574.(Medium) Winning Candidate","level":"1.3.21","depth":2,"path":"sql/574.-medium-winning-candidate.md","ref":"sql/574.-medium-winning-candidate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/577.EmployeeBonus.md","mtime":"2021-03-22T09:37:06.304Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-22T09:37:09.939Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
