@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>197.(Easy) 上升的温度 · My Leetcode Log</title>
+        <title>1132.(Medium) 报告的记录II · My Leetcode Log</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="262.-hang-cheng-he-yong-hu-kun-nan.html" />
+    <link rel="next" href="1141.查询近30天活跃用户数.html" />
     
     
-    <link rel="prev" href="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html" />
+    <link rel="prev" href="1127.UserPurchasePlatform.html" />
     
 
     </head>
@@ -289,7 +289,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.12" data-path="197.-shang-sheng-de-wen-du-jian-dan.html">
+        <li class="chapter " data-level="1.3.12" data-path="197.-shang-sheng-de-wen-du-jian-dan.html">
             
                 <a href="197.-shang-sheng-de-wen-du-jian-dan.html">
             
@@ -978,7 +978,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.65" data-path="1132.报告的记录II.html">
+        <li class="chapter active" data-level="1.3.65" data-path="1132.报告的记录II.html">
             
                 <a href="1132.报告的记录II.html">
             
@@ -1188,7 +1188,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >197.(Easy) 上升的温度</a>
+        <a href=".." >1132.(Medium) 报告的记录II</a>
     </h1>
 </div>
 
@@ -1203,26 +1203,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="197easy-&#x4E0A;&#x5347;&#x7684;&#x6E29;&#x5EA6;">197.(Easy) &#x4E0A;&#x5347;&#x7684;&#x6E29;&#x5EA6;</h1>
-<h4 id="mysql">MySQL</h4>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> w1.<span class="hljs-keyword">Id</span>
-<span class="hljs-keyword">FROM</span>
-    Weather w1 <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
-    Weather w2 
-    <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DATEDIFF</span>(w1.RecordDate,w2.RecordDate) = <span class="hljs-number">1</span>
-<span class="hljs-keyword">WHERE</span>
-    w1.Temperature &gt; w2.Temperature
+                                <h1 id="1132medium-&#x62A5;&#x544A;&#x7684;&#x8BB0;&#x5F55;-ii">1132.(Medium) &#x62A5;&#x544A;&#x7684;&#x8BB0;&#x5F55; II</h1>
+<p>&#x52A8;&#x4F5C;&#x8868; <code>Action</code></p>
+<pre><code>+---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| user_id       | int     |
+| post_id       | int     |
+| action_date   | date    |
+| action        | enum    |
+| extra         | varchar |
++---------------+---------+
+&#x8FD9;&#x5F20;&#x8868;&#x6CA1;&#x6709;&#x4E3B;&#x952E;&#xFF0C;&#x5E76;&#x6709;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x91CD;&#x590D;&#x7684;&#x884C;&#x3002;
+action &#x5217;&#x7684;&#x7C7B;&#x578B;&#x662F; ENUM&#xFF0C;&#x53EF;&#x80FD;&#x7684;&#x503C;&#x4E3A; (&apos;view&apos;, &apos;like&apos;, &apos;reaction&apos;, &apos;comment&apos;, &apos;report&apos;, &apos;share&apos;)&#x3002;
+extra &#x5217;&#x62E5;&#x6709;&#x4E00;&#x4E9B;&#x53EF;&#x9009;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x62A5;&#x544A;&#x7406;&#x7531;&#xFF08;a reason for report&#xFF09;&#x6216;&#x53CD;&#x5E94;&#x7C7B;&#x578B;&#xFF08;a type of reaction&#xFF09;&#x7B49;&#x3002;
+</code></pre><p>&#x79FB;&#x9664;&#x8868; <code>Removals</code></p>
+<pre><code>+---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| post_id       | int     |
+| remove_date   | date    | 
++---------------+---------+
+&#x8FD9;&#x5F20;&#x8868;&#x7684;&#x4E3B;&#x952E;&#x662F; post_id&#x3002;
+&#x8FD9;&#x5F20;&#x8868;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x88AB;&#x79FB;&#x9664;&#x7684;&#x5E16;&#x5B50;&#xFF0C;&#x539F;&#x56E0;&#x53EF;&#x80FD;&#x662F;&#x7531;&#x4E8E;&#x88AB;&#x4E3E;&#x62A5;&#x6216;&#x88AB;&#x7BA1;&#x7406;&#x5458;&#x5BA1;&#x67E5;&#x3002;
+</code></pre><p>&#x7F16;&#x5199;&#x4E00;&#x6BB5; SQL &#x6765;&#x67E5;&#x627E;&#xFF1A;&#x5728;&#x88AB;&#x62A5;&#x544A;&#x4E3A;&#x5783;&#x573E;&#x5E7F;&#x544A;&#x7684;&#x5E16;&#x5B50;&#x4E2D;&#xFF0C;&#x88AB;&#x79FB;&#x9664;&#x7684;&#x5E16;&#x5B50;&#x7684;&#x6BCF;&#x65E5;&#x5E73;&#x5747;&#x5360;&#x6BD4;&#xFF0C;&#x56DB;&#x820D;&#x4E94;&#x5165;&#x5230;&#x5C0F;&#x6570;&#x70B9;&#x540E; 2 &#x4F4D;&#x3002;</p>
+<p>&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>Actions table:
++---------+---------+-------------+--------+--------+
+| user_id | post_id | action_date | action | extra  |
++---------+---------+-------------+--------+--------+
+| 1       | 1       | 2019-07-01  | view   | null   |
+| 1       | 1       | 2019-07-01  | like   | null   |
+| 1       | 1       | 2019-07-01  | share  | null   |
+| 2       | 2       | 2019-07-04  | view   | null   |
+| 2       | 2       | 2019-07-04  | report | spam   |
+| 3       | 4       | 2019-07-04  | view   | null   |
+| 3       | 4       | 2019-07-04  | report | spam   |
+| 4       | 3       | 2019-07-02  | view   | null   |
+| 4       | 3       | 2019-07-02  | report | spam   |
+| 5       | 2       | 2019-07-03  | view   | null   |
+| 5       | 2       | 2019-07-03  | report | racism |
+| 5       | 5       | 2019-07-03  | view   | null   |
+| 5       | 5       | 2019-07-03  | report | racism |
++---------+---------+-------------+--------+--------+
+
+Removals table:
++---------+-------------+
+| post_id | remove_date |
++---------+-------------+
+| 2       | 2019-07-20  |
+| 3       | 2019-07-18  |
++---------+-------------+
+
+Result table:
++-----------------------+
+| average_daily_percent |
++-----------------------+
+| 75.00                 |
++-----------------------+
+2019-07-04 &#x7684;&#x5783;&#x573E;&#x5E7F;&#x544A;&#x79FB;&#x9664;&#x7387;&#x662F; 50%&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x4E24;&#x5F20;&#x5E16;&#x5B50;&#x88AB;&#x62A5;&#x544A;&#x4E3A;&#x5783;&#x573E;&#x5E7F;&#x544A;&#xFF0C;&#x4F46;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5F97;&#x5230;&#x79FB;&#x9664;&#x3002;
+2019-07-02 &#x7684;&#x5783;&#x573E;&#x5E7F;&#x544A;&#x79FB;&#x9664;&#x7387;&#x662F; 100%&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x4E00;&#x5F20;&#x5E16;&#x5B50;&#x88AB;&#x4E3E;&#x62A5;&#x4E3A;&#x5783;&#x573E;&#x5E7F;&#x544A;&#x5E76;&#x5F97;&#x5230;&#x79FB;&#x9664;&#x3002;
+&#x5176;&#x4F59;&#x51E0;&#x5929;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x5783;&#x573E;&#x5E7F;&#x544A;&#x7684;&#x4E3E;&#x62A5;&#xFF0C;&#x56E0;&#x6B64;&#x5E73;&#x5747;&#x503C;&#x4E3A;&#xFF1A;(50 + 100) / 2 = 75%
+&#x6CE8;&#x610F;&#xFF0C;&#x8F93;&#x51FA;&#x4EC5;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5E73;&#x5747;&#x503C;&#x5373;&#x53EF;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x5173;&#x6CE8;&#x79FB;&#x9664;&#x64CD;&#x4F5C;&#x7684;&#x65E5;&#x671F;&#x3002;
+</code></pre><h2 id="solution">Solution</h2>
+<ol>
+<li>actions left join removals &#x53EF;&#x5F97;&#x77E5;&#x6BCF;&#x4E2A;&#x5E16;&#x5B50;&#x662F;&#x5426;&#x6709;&#x5220;&#x9664;&#x8BB0;&#x5F55;</li>
+<li>&#x6309;&#x65E5;&#x671F;&#x805A;&#x5408;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x5F53;&#x65E5;&#x88AB;&#x4E3E;&#x62A5;&#x7684;&#x5E16;&#x5B50;&#x6570; n_report &#x548C;&#x6709;&#x5220;&#x9664;&#x8BB0;&#x5F55;&#x7684;&#x5E16;&#x5B50;&#x6570; n_remove</li>
+<li>&#x53D6;&#x5E73;&#x5747;&#xFF0C;&#x4E58;&#x4EE5;100&#xFF0C;&#x4FDD;&#x7559;&#x4E24;&#x4F4D;&#x5C0F;&#x6570;</li>
+</ol>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">round</span>(<span class="hljs-keyword">AVG</span>(n_remove/n_report)*<span class="hljs-number">100</span>,<span class="hljs-number">2</span>) average_daily_percent
+<span class="hljs-keyword">from</span> 
+    (<span class="hljs-keyword">select</span> a.action_date, 
+        <span class="hljs-keyword">count</span>(<span class="hljs-keyword">distinct</span> a.post_id) n_report, 
+        <span class="hljs-keyword">count</span>(<span class="hljs-keyword">distinct</span> b.post_id) n_remove
+    <span class="hljs-keyword">from</span> Actions a
+    <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> Removals b <span class="hljs-keyword">on</span> a.post_id = b.post_id
+    <span class="hljs-keyword">where</span> a.<span class="hljs-keyword">action</span>=<span class="hljs-string">&apos;report&apos;</span> <span class="hljs-keyword">and</span> a.extra = <span class="hljs-string">&apos;spam&apos;</span>
+    <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> a.action_date) t
 </code></pre>
-<h4 id="oracle">Oracle</h4>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> w1.<span class="hljs-keyword">Id</span>
-<span class="hljs-keyword">FROM</span>
-    Weather w1 <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span>
-    Weather w2 
-    <span class="hljs-keyword">ON</span> w2.RecordDate = w1.RecordDate - <span class="hljs-number">1</span> 
-<span class="hljs-keyword">WHERE</span>
-    w1.Temperature &gt; w2.Temperature
-</code></pre>
-<p>MySQL &#x7528;<code>DATEDIFF(d1,d2)</code>&#x6765;&#x8868;&#x793A;d1 - d2&#xFF0C;Oracle&#x91CC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BF9;date&#x505A;&#x52A0;&#x51CF;&#x8FD0;&#x7B97;&#x3002;</p>
 
                                 
                                 </section>
@@ -1250,12 +1308,12 @@
 
             
                 
-                <a href="196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.html" class="navigation navigation-prev " aria-label="Previous page: 196.(Easy) 删除重复的电子邮箱">
+                <a href="1127.UserPurchasePlatform.html" class="navigation navigation-prev " aria-label="Previous page: 1127.(Hard) User Purchase Platform">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="262.-hang-cheng-he-yong-hu-kun-nan.html" class="navigation navigation-next " aria-label="Next page: 262.(Hard) 行程和用户">
+                <a href="1141.查询近30天活跃用户数.html" class="navigation navigation-next " aria-label="Next page: 1141.(Easy) 查询近30天活跃用户数">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1266,7 +1324,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"197.(Easy) 上升的温度","level":"1.3.12","depth":2,"next":{"title":"262.(Hard) 行程和用户","level":"1.3.13","depth":2,"path":"sql/262.-hang-cheng-he-yong-hu-kun-nan.md","ref":"sql/262.-hang-cheng-he-yong-hu-kun-nan.md","articles":[]},"previous":{"title":"196.(Easy) 删除重复的电子邮箱","level":"1.3.11","depth":2,"path":"sql/196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.md","ref":"sql/196.easy-shan-chu-zhong-fu-de-dian-zi-you-xiang.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/197.-shang-sheng-de-wen-du-jian-dan.md","mtime":"2021-03-22T09:47:32.871Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-22T16:13:38.962Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1132.(Medium) 报告的记录II","level":"1.3.65","depth":2,"next":{"title":"1141.(Easy) 查询近30天活跃用户数","level":"1.3.66","depth":2,"path":"sql/1141.查询近30天活跃用户数.md","ref":"sql/1141.查询近30天活跃用户数.md","articles":[]},"previous":{"title":"1127.(Hard) User Purchase Platform","level":"1.3.64","depth":2,"path":"sql/1127.UserPurchasePlatform.md","ref":"sql/1127.UserPurchasePlatform.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","mathjax@git+https://github.com/CHN-beta/plugin-mathjax.git#update_cdn","code-optimize"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"useIdentifier":false,"shortName":"ladychili"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"code-optimize":{"copyButtons":true,"showLines":true}},"theme":"default","author":"Lady Chili <zqt0@outlook.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"My Leetcode Log","links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"LadyChili's Place":"https://ladychili.top"}},"gitbook":"*","description":"This is a sample book created by gitbook","extension":null},"file":{"path":"sql/1132.报告的记录II.md","mtime":"2021-03-22T15:14:46.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-22T16:13:38.962Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
