@@ -66,3 +66,6 @@
 * [1113.\(Easy\) Reported Posts](1113.ReportedPosts.md)
 * [1126.\(Medium\) Active Businesses](1126.ActiveBusinesses.md)
 * [1127.\(Hard\) User Purchase Platform](1127.UserPurchasePlatform.md)
+* [1132.\(Medium\) 报告的记录II](1132.报告的记录II.md)
+* [1141.\(Easy\) 查询近30天活跃用户数](1141.查询近30天活跃用户数.md)
+* [1142.\(Easy\) 过去30天的用户活动II](1142.过去30天的用户活动II.md)
