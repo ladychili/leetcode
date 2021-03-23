@@ -1,5 +1,4 @@
-# 求1+2+3+...+n
-
+# 求1至n的和
 
 ## Problem
 
@@ -15,5 +14,6 @@ class Solution:
 
 一个简单的递归，n=0时终止。
 
-- a非0时，`a and n = n`
-- a为0时，`a and n = 0`
+* a非0时，`a and n = n`
+* a为0时，`a and n = 0`
+
