@@ -81,3 +81,8 @@
 * [1194.\(Hard\) 锦标赛优胜者](1194.锦标赛优胜者.md)
 * [1204.\(Medium\) 最后一个能进入电梯的人](1204.最后一个能进入电梯的人.md)
 * [1205.\(Medium\) 每月交易II](1205.每月交易II.md)
+* [1211.\(Easy\)查询结果的质量和占比](1211.queries-quality-and-percentage.md)
+* [1212.\(Medium\)查询球队积分](1212.team-scores-in-football-tournament.md)
+* [1225.\(Hard\)报告系统状态的连续日期](1225.report-contiguous-dates.md)
+* [1241.\(Easy\)每个帖子的评论数](1241.number-of-comments-per-post.md)
+* [1251.\(Easy\)平均售价](1251.average-selling-price.md)
