@@ -86,3 +86,6 @@
 * [1225.\(Hard\)报告系统状态的连续日期](1225.report-contiguous-dates.md)
 * [1241.\(Easy\)每个帖子的评论数](1241.number-of-comments-per-post.md)
 * [1251.\(Easy\)平均售价](1251.average-selling-price.md)
+* [1264.\(Medium\)页面推荐](1264.page-recommendations.md)
+* [1270.\(Medium\)向公司CEO汇报工作的所有人](1270.all-people-report-to-the-given-manager.md)
+* [1280.\(Easy\)学生们参加各科测试的次数](1280.students-and-examinations.md)
