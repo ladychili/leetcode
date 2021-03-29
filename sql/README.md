@@ -89,3 +89,7 @@
 * [1264.\(Medium\)页面推荐](1264.page-recommendations.md)
 * [1270.\(Medium\)向公司CEO汇报工作的所有人](1270.all-people-report-to-the-given-manager.md)
 * [1280.\(Easy\)学生们参加各科测试的次数](1280.students-and-examinations.md)
+* [1285.\(Medium\)找到连续区间的开始和结束数字](1285.find-the-start-and-end-number-of-continuous-ranges.md)
+* [1294.\(Easy\)不同国家的天气类型](1294.weather-type-in-each-country.md)
+* [1303.\(Easy\)求团队人数](1303.find-the-team-size.md)
+* [1308.\(Medium\)不同性别每日分数总计](1308.running-total-for-different-genders.md)
