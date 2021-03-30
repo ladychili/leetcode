@@ -93,3 +93,7 @@
 * [1294.\(Easy\)不同国家的天气类型](1294.weather-type-in-each-country.md)
 * [1303.\(Easy\)求团队人数](1303.find-the-team-size.md)
 * [1308.\(Medium\)不同性别每日分数总计](1308.running-total-for-different-genders.md)
+* [1321.\(Medium\)餐馆营业额变化增长](1321.restaurant-growth.md)
+* [1322.\(Easy\)广告效果](1322.ads-performance.md)
+* [1327.\(Easy\)列出指定时间段内所有的下单产品](1327.list-the-products-ordered-in-a-period.md)
+* [1336.\(Hard\)每次访问的交易次数](1336.number-of-transactions-per-visit.md)

@@ -94,6 +94,10 @@
   * [1294.\(Easy\)不同国家的天气类型](sql/1294.weather-type-in-each-country.md)
   * [1303.\(Easy\)求团队人数](sql/1303.find-the-team-size.md)
   * [1308.\(Medium\)不同性别每日分数总计](sql/1308.running-total-for-different-genders.md)
+  * [1321.\(Medium\)餐馆营业额变化增长](sql/1321.restaurant-growth.md)
+  * [1322.\(Easy\)广告效果](sql/1322.ads-performance.md)
+  * [1327.\(Easy\)列出指定时间段内所有的下单产品](sql/1327.list-the-products-ordered-in-a-period.md)
+  * [1336.\(Hard\)每次访问的交易次数](sql/1336.number-of-transactions-per-visit.md)
 
 * [剑指offer](jianzhi-offer/README.md)
   * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
