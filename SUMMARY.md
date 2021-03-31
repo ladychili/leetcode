@@ -98,6 +98,12 @@
   * [1322.\(Easy\)广告效果](sql/1322.ads-performance.md)
   * [1327.\(Easy\)列出指定时间段内所有的下单产品](sql/1327.list-the-products-ordered-in-a-period.md)
   * [1336.\(Hard\)每次访问的交易次数](sql/1336.number-of-transactions-per-visit.md)
+  * [1341.\(Medium\)电影评分](sql/1341.movie-rating.md)
+  * [1350.\(Easy\)院系无效的学生](sql/1350.students-with-invalid-departments.md)
+  * [1355.\(Medium\)活动参与者](sql/1355.activity-participants.md)
+  * [1364.\(Medium\)顾客的可信联系人数量](sql/1364.number-of-trusted-contacts-of-a-customer.md)
+  * [1369.\(Hard\)获取最近第二次的活动](sql/1369.get-the-second-most-recent-activity.md)
+  * [1378.\(Easy\)使用唯一标识码替换员工ID](sql/1378.replace-employee-id-with-the-unique-identifier.md)
 
 * [剑指offer](jianzhi-offer/README.md)
   * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
