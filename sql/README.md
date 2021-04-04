@@ -108,3 +108,8 @@
 * [1398.\(Medium\)购买了产品 A 和产品 B 却没有购买产品 C 的顾客](1398.customers-who-bought-products-a-and-b-but-not-c.md)
 * [1407.\(Easy\)排名靠前的旅行者](1407.top-travellers.md)
 * [1412.\(Hard\)查找成绩处于中游的学生](1412.find-the-quiet-students-in-all-exams.md)
+* [1421.\(Medium\)净现值查询](1421.npv-queries.md)
+* [1435.\(Easy\)制作会话柱状图](1435.create-a-session-bar-chart.md)
+* [1440.\(Medium\)计算布尔表达式的值](1440.evaluate-boolean-expression.md)
+* [1445.\(Medium\)苹果和桔子](1445.apples-oranges.md)
+* [1454.\(Medium\)活跃用户](1454.active-users.md)

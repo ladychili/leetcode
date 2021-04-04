@@ -109,7 +109,11 @@
   * [1398.\(Medium\)购买了产品 A 和产品 B 却没有购买产品 C 的顾客](sql/1398.customers-who-bought-products-a-and-b-but-not-c.md)
   * [1407.\(Easy\)排名靠前的旅行者](sql/1407.top-travellers.md)
   * [1412.\(Hard\)查找成绩处于中游的学生](sql/1412.find-the-quiet-students-in-all-exams.md)
-
+  * [1421.\(Medium\)净现值查询](sql/1421.npv-queries.md)
+  * [1435.\(Easy\)制作会话柱状图](sql/1435.create-a-session-bar-chart.md)
+  * [1440.\(Medium\)计算布尔表达式的值](sql/1440.evaluate-boolean-expression.md)
+  * [1445.\(Medium\)苹果和桔子](sql/1445.apples-oranges.md)
+  * [1454.\(Medium\)活跃用户](sql/1454.active-users.md)
 * [剑指offer](jianzhi-offer/README.md)
   * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
   * [构建乘积数组](jianzhi-offer/gou-jian-cheng-ji-shu-zu.md)
