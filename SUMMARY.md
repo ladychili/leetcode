@@ -104,6 +104,11 @@
   * [1364.\(Medium\)顾客的可信联系人数量](sql/1364.number-of-trusted-contacts-of-a-customer.md)
   * [1369.\(Hard\)获取最近第二次的活动](sql/1369.get-the-second-most-recent-activity.md)
   * [1378.\(Easy\)使用唯一标识码替换员工ID](sql/1378.replace-employee-id-with-the-unique-identifier.md)
+  * [1384.\(Hard\)按年度列出销售总额](sql/1384.total-sales-amount-by-year.md)
+  * [1393.\(Medium\)股票的资本损益](sql/1393.capital-gainloss.md)
+  * [1398.\(Medium\)购买了产品 A 和产品 B 却没有购买产品 C 的顾客](sql/1398.customers-who-bought-products-a-and-b-but-not-c.md)
+  * [1407.\(Easy\)排名靠前的旅行者](sql/1407.top-travellers.md)
+  * [1412.\(Hard\)查找成绩处于中游的学生](sql/1412.find-the-quiet-students-in-all-exams.md)
 
 * [剑指offer](jianzhi-offer/README.md)
   * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
