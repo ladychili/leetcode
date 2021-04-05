@@ -113,3 +113,8 @@
 * [1440.\(Medium\)计算布尔表达式的值](1440.evaluate-boolean-expression.md)
 * [1445.\(Medium\)苹果和桔子](1445.apples-oranges.md)
 * [1454.\(Medium\)活跃用户](1454.active-users.md)
+* [1459.\(Medium\)矩形面积](1459.rectangles-area.md)
+* [1468.\(Medium\)计算税后工资](1468.calculate-salaries.md)
+* [1479.\(Hard\)周内每天的销售情况](1479.sales-by-day-of-the-week.md)
+* [1485.\(Easy\)按日期分组销售产品](1485.group-sold-products-by-the-date.md)
+* [1495.\(Easy\)上月播放的儿童适宜电影](1495.friendly-movies-streamed-last-month.md)
