@@ -118,3 +118,8 @@
 * [1479.\(Hard\)周内每天的销售情况](1479.sales-by-day-of-the-week.md)
 * [1485.\(Easy\)按日期分组销售产品](1485.group-sold-products-by-the-date.md)
 * [1495.\(Easy\)上月播放的儿童适宜电影](1495.friendly-movies-streamed-last-month.md)
+* [1501.\(Medium\)可以放心投资的国家](1501.countries-you-can-safely-invest-in.md)
+* [1511.\(Easy\)消费者下单频率](1511.customer-order-frequency.md)
+* [1517.\(Easy\)查找拥有有效邮箱的用户](1517.find-users-with-valid-e-mails.md)
+* [1527.\(Easy\)患某种疾病的患者](1527.patients-with-a-condition.md)
+* [1532.\(Medium\)最近的三笔订单](1532.the-most-recent-three-orders.md)
