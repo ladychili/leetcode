@@ -123,3 +123,6 @@
 * [1517.\(Easy\)查找拥有有效邮箱的用户](1517.find-users-with-valid-e-mails.md)
 * [1527.\(Easy\)患某种疾病的患者](1527.patients-with-a-condition.md)
 * [1532.\(Medium\)最近的三笔订单](1532.the-most-recent-three-orders.md)
+* [1543.\(Easy\)产品名称格式修复](1543.fix-product-name-format.md)
+* [1549.\(Medium\)每件商品的最新订单](1549.the-most-recent-orders-for-each-product.md)
+* [1555.\(Medium\)银行账户概要](1555.bank-account-summary.md)
