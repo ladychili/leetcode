@@ -136,6 +136,6 @@
 * [1623.\(Easy\)三人国家代表队](1623.all-valid-triplets-that-can-represent-a-country.md)
 * [1633.\(Easy\)各赛事的用户注册率](1633.percentage-of-users-attended-a-contest.md)
 * [1635.\(Hard\)Hopper 公司查询 I](1635.hopper-company-queries-i.md)
-* [1645.\(Hard\)nan](1645.hopper-company-queries-ii.md)
-* [1651.\(Hard\)nan](1651.hopper-company-queries-iii.md)
+* [1645.\(Hard\)Hopper Company Queries II](1645.hopper-company-queries-ii.md)
+* [1651.\(Hard\)Hopper Company Queries III](1651.hopper-company-queries-iii.md)
 * [1661.\(Easy\)每台机器的进程平均运行时间](1661.average-time-of-process-per-machine.md)
