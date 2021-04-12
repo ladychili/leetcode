@@ -134,6 +134,12 @@
   * [1596.\(Medium\)每位顾客最经常订购的商品](sql/1596.the-most-frequently-ordered-products-for-each-customer.md)
   * [1607.\(Easy\)没有卖出的卖家](sql/1607.sellers-with-no-sales.md)
   * [1613.\(Medium\)找到遗失的ID](sql/1613.find-the-missing-ids.md)
+  * [1623.\(Easy\)三人国家代表队](sql/1623.all-valid-triplets-that-can-represent-a-country.md)
+  * [1633.\(Easy\)各赛事的用户注册率](sql/1633.percentage-of-users-attended-a-contest.md)
+  * [1635.\(Hard\)Hopper 公司查询 I](sql/1635.hopper-company-queries-i.md)
+  * [1645.\(Hard\)Hopper Company Queries II](sql/1645.hopper-company-queries-ii.md)
+  * [1651.\(Hard\)Hopper Company Queries III](sql/1651.hopper-company-queries-iii.md)
+  * [1661.\(Easy\)每台机器的进程平均运行时间](sql/1661.average-time-of-process-per-machine.md)
 * [剑指offer](jianzhi-offer/README.md)
   * [连续子数组的最大和](jianzhi-offer/lian-xu-zi-shu-zu-zui-da-he.md)
   * [构建乘积数组](jianzhi-offer/gou-jian-cheng-ji-shu-zu.md)
@@ -144,4 +150,3 @@
   * [二进制数中1的个数](jianzhi-offer/binary1counts.md)
   * [十进制数中1的个数](jianzhi-offer/decimal1counts.md)
   * [二分查找](jianzhi-offer/binarysearch.md)
-
