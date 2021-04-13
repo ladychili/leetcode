@@ -139,3 +139,7 @@
 * [1645.\(Hard\)Hopper Company Queries II](1645.hopper-company-queries-ii.md)
 * [1651.\(Hard\)Hopper Company Queries III](1651.hopper-company-queries-iii.md)
 * [1661.\(Easy\)每台机器的进程平均运行时间](1661.average-time-of-process-per-machine.md)
+* [1667.\(Easy\)修复表中的名字](1667.fix-names-in-a-table.md)
+* [1677.\(Easy\)发票中的产品金额](1677.products-worth-over-invoices.md)
+* [1683.\(Easy\)无效的推文](1683.invalid-tweets.md)
+* [1693.\(Easy\)每天的领导和合伙人](1693.daily-leads-and-partners.md)
