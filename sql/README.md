@@ -149,3 +149,7 @@
 * [1729.\(Easy\)求关注者的数量](1729.find-followers-count.md)
 * [1731.\(Easy\)每位经理的下属员工数量](1731.the-number-of-employees-which-report-to-each-employee.md)
 * [1741.\(Easy\)查找每个员工花费的总时间](1741.find-total-time-spent-by-each-employee.md)
+* [1747.\(Medium\)应该被禁止的Leetflex账户](1747.leetflex-banned-accounts.md)
+* [1757.\(Easy\)可回收且低脂的产品](1757.recyclable-and-low-fat-products.md)
+* [1767.\(Hard\)Find the Subtasks That Did Not Execute](1767.find-the-subtasks-that-did-not-execute.md)
+* [1777.\(Easy\)每家商店的产品价格](1777.products-price-for-each-store.md)
