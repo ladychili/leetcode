@@ -153,3 +153,6 @@
 * [1757.\(Easy\)可回收且低脂的产品](1757.recyclable-and-low-fat-products.md)
 * [1767.\(Hard\)Find the Subtasks That Did Not Execute](1767.find-the-subtasks-that-did-not-execute.md)
 * [1777.\(Easy\)每家商店的产品价格](1777.products-price-for-each-store.md)
+* [1783.\(Medium\)Grand Slam Titles](1783.grand-slam-titles.md)
+* [1789.\(Easy\)Primary Department for Each Employee](1789.primary-department-for-each-employee.md)
+* [1795.\(Easy\)Rearrange Products Table](1795.rearrange-products-table.md)
