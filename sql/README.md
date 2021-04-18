@@ -156,3 +156,6 @@
 * [1783.\(Medium\)Grand Slam Titles](1783.grand-slam-titles.md)
 * [1789.\(Easy\)Primary Department for Each Employee](1789.primary-department-for-each-employee.md)
 * [1795.\(Easy\)Rearrange Products Table](1795.rearrange-products-table.md)
+* [1809.\(Easy\)Ad-Free Sessions](1809.ad-free-sessions.md)
+* [1811.\(Medium\)Find Interview Candidates](1811.find-interview-candidates.md)
+* [1821.\(Easy\)Find Customers With Positive Revenue this Year](1821.find-customers-with-positive-revenue-this-year.md)
