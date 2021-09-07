@@ -159,3 +159,7 @@
 * [1809.\(Easy\)Ad-Free Sessions](1809.ad-free-sessions.md)
 * [1811.\(Medium\)Find Interview Candidates](1811.find-interview-candidates.md)
 * [1821.\(Easy\)Find Customers With Positive Revenue this Year](1821.find-customers-with-positive-revenue-this-year.md)
+* [1831.\(Medium\)Maximum Transaction Each Day](1831.maximum-transaction-each-day.md)
+* [1841.\(Medium\)League Statistics](1841.league-statistics.md)
+* [1843.\(Medium\)Suspicious Bank Accounts](1843.suspicious-bank-accounts.md)
+* [1853.\(Easy\)Convert Date Format](1853.convert-date-format.md)
