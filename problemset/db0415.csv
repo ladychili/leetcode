@@ -1,0 +1,158 @@
+frontend_question_id,question_id,title,question__title,question__title_slug,level,paid_only
+175,175,组合两个表,Combine Two Tables,combine-two-tables,Easy,False
+176,176,第二高的薪水,Second Highest Salary,second-highest-salary,Easy,False
+177,177,第N高的薪水,Nth Highest Salary,nth-highest-salary,Medium,False
+178,178,分数排名,Rank Scores,rank-scores,Medium,False
+180,180,连续出现的数字,Consecutive Numbers,consecutive-numbers,Medium,False
+181,181,超过经理收入的员工,Employees Earning More Than Their Managers,employees-earning-more-than-their-managers,Easy,False
+182,182,查找重复的电子邮箱,Duplicate Emails,duplicate-emails,Easy,False
+183,183,从不订购的客户,Customers Who Never Order,customers-who-never-order,Easy,False
+184,184,部门工资最高的员工,Department Highest Salary,department-highest-salary,Medium,False
+185,185,部门工资前三高的所有员工,Department Top Three Salaries,department-top-three-salaries,Hard,False
+196,196,删除重复的电子邮箱,Delete Duplicate Emails,delete-duplicate-emails,Easy,False
+197,197,上升的温度,Rising Temperature,rising-temperature,Easy,False
+262,262,行程和用户,Trips and Users,trips-and-users,Hard,False
+511,1179,游戏玩法分析 I,Game Play Analysis I,game-play-analysis-i,Easy,True
+512,1180,游戏玩法分析 II,Game Play Analysis II,game-play-analysis-ii,Easy,True
+534,1181,游戏玩法分析 III,Game Play Analysis III,game-play-analysis-iii,Medium,True
+550,1182,游戏玩法分析 IV,Game Play Analysis IV,game-play-analysis-iv,Medium,True
+569,569,员工薪水中位数,Median Employee Salary,median-employee-salary,Hard,True
+570,570,至少有5名直接下属的经理,Managers with at Least 5 Direct Reports,managers-with-at-least-5-direct-reports,Medium,True
+571,571,给定数字的频率查询中位数,Find Median Given Frequency of Numbers,find-median-given-frequency-of-numbers,Hard,True
+574,574,当选者,Winning Candidate,winning-candidate,Medium,True
+577,577,员工奖金,Employee Bonus,employee-bonus,Easy,True
+578,578,查询回答率最高的问题,Get Highest Answer Rate Question,get-highest-answer-rate-question,Medium,True
+579,579,查询员工的累计薪水,Find Cumulative Salary of an Employee,find-cumulative-salary-of-an-employee,Hard,True
+580,580,统计各专业学生人数,Count Student Number in Departments,count-student-number-in-departments,Medium,True
+584,584,寻找用户推荐人,Find Customer Referee,find-customer-referee,Easy,True
+585,585,2016年的投资,Investments in 2016,investments-in-2016,Medium,True
+586,586,订单最多的客户,Customer Placing the Largest Number of Orders,customer-placing-the-largest-number-of-orders,Easy,True
+595,595,大的国家,Big Countries,big-countries,Easy,False
+596,596,超过5名学生的课,Classes More Than 5 Students,classes-more-than-5-students,Easy,False
+597,597,好友申请 I：总体通过率,Friend Requests I: Overall Acceptance Rate,friend-requests-i-overall-acceptance-rate,Easy,True
+601,601,体育馆的人流量,Human Traffic of Stadium,human-traffic-of-stadium,Hard,False
+602,602,好友申请 II ：谁有最多的好友,Friend Requests II: Who Has the Most Friends,friend-requests-ii-who-has-the-most-friends,Medium,True
+603,603,连续空余座位,Consecutive Available Seats,consecutive-available-seats,Easy,True
+607,607,销售员,Sales Person,sales-person,Easy,True
+608,608,树节点,Tree Node,tree-node,Medium,True
+610,610,判断三角形,Triangle Judgement,triangle-judgement,Easy,True
+612,612,平面上的最近距离,Shortest Distance in a Plane,shortest-distance-in-a-plane,Medium,True
+613,613,直线上的最近距离,Shortest Distance in a Line,shortest-distance-in-a-line,Easy,True
+614,614,二级关注者,Second Degree Follower,second-degree-follower,Medium,True
+615,615,平均工资：部门与公司比较,Average Salary: Departments VS Company,average-salary-departments-vs-company,Hard,True
+618,618,学生地理信息报告,Students Report By Geography,students-report-by-geography,Hard,True
+619,619,只出现一次的最大数字,Biggest Single Number,biggest-single-number,Easy,True
+620,620,有趣的电影,Not Boring Movies,not-boring-movies,Easy,False
+626,626,换座位,Exchange Seats,exchange-seats,Medium,False
+627,627,变更性别,Swap Salary,swap-salary,Easy,False
+1045,1135,买下所有产品的客户,Customers Who Bought All Products,customers-who-bought-all-products,Medium,True
+1050,1136,合作过至少三次的演员和导演,Actors and Directors Who Cooperated At Least Three Times,actors-and-directors-who-cooperated-at-least-three-times,Easy,True
+1068,1153,产品销售分析 I,Product Sales Analysis I,product-sales-analysis-i,Easy,True
+1069,1154,产品销售分析 II,Product Sales Analysis II,product-sales-analysis-ii,Easy,True
+1070,1155,产品销售分析 III,Product Sales Analysis III,product-sales-analysis-iii,Medium,True
+1075,1161,项目员工 I,Project Employees I,project-employees-i,Easy,True
+1076,1162,项目员工II,Project Employees II,project-employees-ii,Easy,True
+1077,1163,项目员工 III,Project Employees III,project-employees-iii,Medium,True
+1082,1172,销售分析 I ,Sales Analysis I,sales-analysis-i,Easy,True
+1083,1173,销售分析 II,Sales Analysis II,sales-analysis-ii,Easy,True
+1084,1174,销售分析III,Sales Analysis III,sales-analysis-iii,Easy,True
+1097,1193,游戏玩法分析 V,Game Play Analysis V,game-play-analysis-v,Hard,True
+1098,1198,小众书籍,Unpopular Books,unpopular-books,Medium,True
+1107,1204,每日新用户统计,New Users Daily Count,new-users-daily-count,Medium,True
+1112,1214,每位学生的最高成绩,Highest Grade For Each Student,highest-grade-for-each-student,Medium,True
+1113,1215,报告的记录,Reported Posts,reported-posts,Easy,True
+1126,1225,查询活跃业务,Active Businesses,active-businesses,Medium,True
+1127,1226,用户购买平台,User Purchase Platform,user-purchase-platform,Hard,True
+1132,1237,报告的记录 II,Reported Posts II,reported-posts-ii,Medium,True
+1141,1245,查询近30天活跃用户数,User Activity for the Past 30 Days I,user-activity-for-the-past-30-days-i,Easy,True
+1142,1246,过去30天的用户活动 II,User Activity for the Past 30 Days II,user-activity-for-the-past-30-days-ii,Easy,True
+1148,1258,文章浏览 I,Article Views I,article-views-i,Easy,True
+1149,1259,文章浏览 II,Article Views II,article-views-ii,Medium,True
+1158,1268,市场分析 I,Market Analysis I,market-analysis-i,Medium,True
+1159,1269,市场分析 II,Market Analysis II,market-analysis-ii,Hard,True
+1164,1278,指定日期的产品价格,Product Price at a Given Date,product-price-at-a-given-date,Medium,True
+1173,1291,即时食物配送 I,Immediate Food Delivery I,immediate-food-delivery-i,Easy,True
+1174,1292,即时食物配送 II,Immediate Food Delivery II,immediate-food-delivery-ii,Medium,True
+1179,1301,重新格式化部门表,Reformat Department Table,reformat-department-table,Easy,False
+1193,1317,每月交易 I,Monthly Transactions I,monthly-transactions-i,Medium,True
+1194,1318,锦标赛优胜者,Tournament Winners,tournament-winners,Hard,True
+1204,1327,最后一个能进入电梯的人,Last Person to Fit in the Elevator,last-person-to-fit-in-the-elevator,Medium,True
+1205,1328,每月交易II,Monthly Transactions II,monthly-transactions-ii,Medium,True
+1211,1338,查询结果的质量和占比,Queries Quality and Percentage,queries-quality-and-percentage,Easy,True
+1212,1339,查询球队积分,Team Scores in Football Tournament,team-scores-in-football-tournament,Medium,True
+1225,1357,报告系统状态的连续日期,Report Contiguous Dates,report-contiguous-dates,Hard,True
+1241,1377,每个帖子的评论数,Number of Comments per Post,number-of-comments-per-post,Easy,True
+1251,1390,平均售价,Average Selling Price,average-selling-price,Easy,True
+1264,1399,页面推荐,Page Recommendations,page-recommendations,Medium,True
+1270,1405,向公司CEO汇报工作的所有人,All People Report to the Given Manager,all-people-report-to-the-given-manager,Medium,True
+1280,1415,学生们参加各科测试的次数,Students and Examinations,students-and-examinations,Easy,True
+1285,1420,找到连续区间的开始和结束数字,Find the Start and End Number of Continuous Ranges,find-the-start-and-end-number-of-continuous-ranges,Medium,True
+1294,1425,不同国家的天气类型,Weather Type in Each Country,weather-type-in-each-country,Easy,True
+1303,1438,求团队人数,Find the Team Size,find-the-team-size,Easy,True
+1308,1439,不同性别每日分数总计,Running Total for Different Genders,running-total-for-different-genders,Medium,True
+1321,1452,餐馆营业额变化增长,Restaurant Growth,restaurant-growth,Medium,True
+1322,1453,广告效果,Ads Performance,ads-performance,Easy,True
+1327,1462,列出指定时间段内所有的下单产品,List the Products Ordered in a Period,list-the-products-ordered-in-a-period,Easy,True
+1336,1467,每次访问的交易次数,Number of Transactions per Visit,number-of-transactions-per-visit,Hard,True
+1341,1480,电影评分,Movie Rating,movie-rating,Medium,True
+1350,1481,院系无效的学生,Students With Invalid Departments,students-with-invalid-departments,Easy,True
+1355,1494,活动参与者,Activity Participants,activity-participants,Medium,True
+1364,1495,顾客的可信联系人数量,Number of Trusted Contacts of a Customer,number-of-trusted-contacts-of-a-customer,Medium,True
+1369,1504,获取最近第二次的活动,Get the Second Most Recent Activity,get-the-second-most-recent-activity,Hard,True
+1378,1509,使用唯一标识码替换员工ID,Replace Employee ID With The Unique Identifier,replace-employee-id-with-the-unique-identifier,Easy,True
+1384,1518,按年度列出销售总额,Total Sales Amount by Year,total-sales-amount-by-year,Hard,True
+1393,1523,股票的资本损益,Capital Gain/Loss,capital-gainloss,Medium,True
+1398,1536,购买了产品 A 和产品 B 却没有购买产品 C 的顾客,Customers Who Bought Products A and B but Not C,customers-who-bought-products-a-and-b-but-not-c,Medium,True
+1407,1541,排名靠前的旅行者,Top Travellers,top-travellers,Easy,True
+1412,1546,查找成绩处于中游的学生,Find the Quiet Students in All Exams,find-the-quiet-students-in-all-exams,Hard,True
+1421,1551,净现值查询,NPV Queries,npv-queries,Medium,True
+1435,1564,制作会话柱状图,Create a Session Bar Chart,create-a-session-bar-chart,Easy,True
+1440,1565,计算布尔表达式的值,Evaluate Boolean Expression,evaluate-boolean-expression,Medium,True
+1445,1578,苹果和桔子,Apples & Oranges,apples-oranges,Medium,True
+1454,1579,活跃用户,Active Users,active-users,Medium,True
+1459,1607,矩形面积,Rectangles Area,rectangles-area,Medium,True
+1468,1608,计算税后工资,Calculate Salaries,calculate-salaries,Medium,True
+1479,1623,周内每天的销售情况,Sales by Day of the Week,sales-by-day-of-the-week,Hard,True
+1485,1625,按日期分组销售产品,Group Sold Products By The Date,group-sold-products-by-the-date,Easy,True
+1495,1639,上月播放的儿童适宜电影,Friendly Movies Streamed Last Month,friendly-movies-streamed-last-month,Easy,True
+1501,1641,可以放心投资的国家,Countries You Can Safely Invest In,countries-you-can-safely-invest-in,Medium,True
+1511,1654,消费者下单频率,Customer Order Frequency,customer-order-frequency,Easy,True
+1517,1664,查找拥有有效邮箱的用户,Find Users With Valid E-Mails,find-users-with-valid-e-mails,Easy,True
+1527,1670,患某种疾病的患者,Patients With a Condition,patients-with-a-condition,Easy,True
+1532,1671,最近的三笔订单,The Most Recent Three Orders,the-most-recent-three-orders,Medium,True
+1543,1686,产品名称格式修复,Fix Product Name Format,fix-product-name-format,Easy,True
+1549,1688,每件商品的最新订单,The Most Recent Orders for Each Product,the-most-recent-orders-for-each-product,Medium,True
+1555,1702,银行账户概要,Bank Account Summary,bank-account-summary,Medium,True
+1565,1712,按月统计订单数与顾客数,Unique Orders and Customers Per Month,unique-orders-and-customers-per-month,Easy,True
+1571,1718,仓库经理,Warehouse Manager,warehouse-manager,Easy,True
+1581,1724,进店却未进行过交易的顾客,Customer Who Visited but Did Not Make Any Transactions,customer-who-visited-but-did-not-make-any-transactions,Easy,True
+1587,1734,银行账户概要 II,Bank Account Summary II,bank-account-summary-ii,Easy,True
+1596,1735,每位顾客最经常订购的商品,The Most Frequently Ordered Products for Each Customer,the-most-frequently-ordered-products-for-each-customer,Medium,True
+1607,1749,没有卖出的卖家,Sellers With No Sales,sellers-with-no-sales,Easy,True
+1613,1759,找到遗失的ID,Find the Missing IDs,find-the-missing-ids,Medium,True
+1623,1763,三人国家代表队,All Valid Triplets That Can Represent a Country,all-valid-triplets-that-can-represent-a-country,Easy,True
+1633,1773,各赛事的用户注册率,Percentage of Users Attended a Contest,percentage-of-users-attended-a-contest,Easy,True
+1635,1779,Hopper 公司查询 I,Hopper Company Queries I,hopper-company-queries-i,Hard,True
+1645,1785,,Hopper Company Queries II,hopper-company-queries-ii,Hard,True
+1651,1795,,Hopper Company Queries III,hopper-company-queries-iii,Hard,True
+1661,1801,每台机器的进程平均运行时间,Average Time of Process per Machine,average-time-of-process-per-machine,Easy,True
+1667,1811,修复表中的名字,Fix Names in a Table,fix-names-in-a-table,Easy,True
+1677,1821,发票中的产品金额,Product's Worth Over Invoices,products-worth-over-invoices,Easy,True
+1683,1827,无效的推文,Invalid Tweets,invalid-tweets,Easy,True
+1693,1837,每天的领导和合伙人,Daily Leads and Partners,daily-leads-and-partners,Easy,True
+1699,1842,两人之间的通话次数,Number of Calls Between Two Persons,number-of-calls-between-two-persons,Medium,True
+1709,1852,访问日期之间最大的空档期,Biggest Window Between Visits,biggest-window-between-visits,Medium,True
+1715,1862,苹果和橘子的个数,Count Apples and Oranges,count-apples-and-oranges,Medium,True
+1729,1877,求关注者的数量,Find Followers Count,find-followers-count,Easy,True
+1731,1882,每位经理的下属员工数量,The Number of Employees Which Report to Each Employee,the-number-of-employees-which-report-to-each-employee,Easy,True
+1741,1892,查找每个员工花费的总时间,Find Total Time Spent by Each Employee,find-total-time-spent-by-each-employee,Easy,True
+1747,1898,应该被禁止的Leetflex账户,Leetflex Banned Accounts,leetflex-banned-accounts,Medium,True
+1757,1908,可回收且低脂的产品,Recyclable and Low Fat Products,recyclable-and-low-fat-products,Easy,True
+1767,1914,,Find the Subtasks That Did Not Execute,find-the-subtasks-that-did-not-execute,Hard,True
+1777,1926,每家商店的产品价格,Product's Price for Each Store,products-price-for-each-store,Easy,True
+1783,1932,,Grand Slam Titles,grand-slam-titles,Medium,True
+1789,1942,,Primary Department for Each Employee,primary-department-for-each-employee,Easy,True
+1795,1948,,Rearrange Products Table,rearrange-products-table,Easy,True
+1809,1958,,Ad-Free Sessions,ad-free-sessions,Easy,True
+1811,1964,,Find Interview Candidates,find-interview-candidates,Medium,True
+1821,1974,,Find Customers With Positive Revenue this Year,find-customers-with-positive-revenue-this-year,Easy,False
