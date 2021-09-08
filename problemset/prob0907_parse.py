@@ -19,7 +19,7 @@ all.to_csv('/Users/cathy/GitProject/leetcode/problemset/db0907.csv',index=False)
 # all[col].to_csv('/Users/cathy/GitProject/leetcode/problemset/all0415.csv',index=False)
 
 
-today = all.loc[157:160]
+today = all.loc[161:165]
 
 #summary
 for idx,row in today.iterrows():

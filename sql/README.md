@@ -163,3 +163,8 @@
 * [1841.\(Medium\)League Statistics](1841.league-statistics.md)
 * [1843.\(Medium\)Suspicious Bank Accounts](1843.suspicious-bank-accounts.md)
 * [1853.\(Easy\)Convert Date Format](1853.convert-date-format.md)
+* [1867.\(Medium\)Orders With Maximum Quantity Above Average](1867.orders-with-maximum-quantity-above-average.md)
+* [1873.\(Easy\)Calculate Special Bonus](1873.calculate-special-bonus.md)
+* [1875.\(Medium\)Group Employees of the Same Salary](1875.group-employees-of-the-same-salary.md)
+* [1890.\(Easy\)The Latest Login in 2020](1890.the-latest-login-in-2020.md)
+* [1892.\(Hard\)Page Recommendations II](1892.page-recommendations-ii.md)
