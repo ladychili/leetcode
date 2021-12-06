@@ -42,12 +42,11 @@ class Solution:
 人生苦短...
 
 ```python
-class Solution:
-    def NumberOf1Between1AndN_Solution(self, n):
-        n = int(n)
-        s = ""
-        for i in range(1,n+1):
-            s+=str(i)
-        return(s.count('1'))
+def NumberOf1Between1AndN_Solution(self, n):
+    n = int(n)
+    s = ""
+    for i in range(1,n+1):
+        s+=str(i)
+    return(s.count('1'))
 ```
 

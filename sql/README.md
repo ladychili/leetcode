@@ -168,3 +168,8 @@
 * [1875.\(Medium\)Group Employees of the Same Salary](1875.group-employees-of-the-same-salary.md)
 * [1890.\(Easy\)The Latest Login in 2020](1890.the-latest-login-in-2020.md)
 * [1892.\(Hard\)Page Recommendations II](1892.page-recommendations-ii.md)
+* [1907.\(Medium\)Count Salary Categories](1907.count-salary-categories.md)
+* [1917.\(Hard\)Leetcodify Friends Recommendations](1917.leetcodify-friends-recommendations.md)
+* [1919.\(Hard\)Leetcodify Similar Friends](1919.leetcodify-similar-friends.md)
+* [1934.\(Medium\)Confirmation Rate](1934.confirmation-rate.md)
+* [1939.\(Easy\)Users That Actively Request Confirmation Messages](1939.users-that-actively-request-confirmation-messages.md)
